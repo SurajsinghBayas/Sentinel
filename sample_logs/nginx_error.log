@@ -1,0 +1,9 @@
+2024/04/29 08:00:01 [error] 1234#0: *1 connect() failed (111: Connection refused) while connecting to upstream, client: 203.0.113.10
+2024/04/29 08:01:00 [warn] 1234#0: *2 upstream response is buffered to a temporary file while reading response header from upstream
+2024/04/29 08:02:00 [error] 1234#0: *3 SSL_do_handshake() failed (SSL: error:1408F10B) while SSL handshaking, client: 198.51.100.5
+2024/04/29 08:03:00 [error] 1234#0: *4 open() "/var/www/html/../../../etc/passwd" failed (2: No such file or directory), client: 172.16.0.55
+2024/04/29 08:03:01 [error] 1234#0: *5 open() "/var/www/html/.env" failed (2: No such file or directory), client: 172.16.0.55
+2024/04/29 08:03:02 [error] 1234#0: *6 open() "/var/www/html/wp-config.php" failed (2: No such file or directory), client: 172.16.0.55
+2024/04/29 08:04:00 [crit] 1234#0: *7 SSL_read() failed (errno: 104) while reading client request headers, client: 10.0.0.99
+2024/04/29 08:05:00 [error] 5678#0: *8 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 45.33.32.156
+2024/04/29 09:00:00 [info] 1234#0: *100 client connected, client: 203.0.113.42, server: sentinel.local

