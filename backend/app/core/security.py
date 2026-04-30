@@ -116,5 +116,15 @@ async def get_current_user(
     return {"user_id": user_id, "email": payload.get("email"), "name": payload.get("name")}
 
 
+def decode_token(token: str) -> Dict[str, Any]:
+    """
+    Decode a JWT access token without raising HTTPException.
+    Used for WebSocket connections where exceptions can't be HTTP responses.
+    Returns the raw payload dict. Raises JWTError on failure.
+    """
+    payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+    return payload
+
+
 # Alias for cleaner dependency injection
 CurrentUser = Depends(get_current_user)

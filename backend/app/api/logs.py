@@ -13,7 +13,7 @@ from fastapi import APIRouter, UploadFile, File, WebSocket, WebSocketDisconnect,
 from fastapi.responses import JSONResponse
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.security import get_current_user
+from app.core.security import get_current_user, decode_token
 from app.core.parser import parse_log_content, LogFormat
 from app.core.detector import engine
 from app.core.log_streamer import manager, simulate_log_stream, broadcast_threat
@@ -225,12 +225,27 @@ async def upload_for_streaming(
 
 
 @router.websocket("/simulate/{log_filename:path}")
-async def websocket_simulate(websocket: WebSocket, log_filename: str, speed: float = 0.08):
+async def websocket_simulate(
+    websocket: WebSocket,
+    log_filename: str,
+    speed: float = 0.08,
+    token: Optional[str] = None,         # JWT passed as ?token=... (WS can't send headers)
+):
     """
     WebSocket: stream a log file line-by-line.
     - Regular filename  → served from SAMPLE_LOGS_DIR
     - __upload__{key}   → served from UPLOAD_STREAM_STORE (user-uploaded file)
+    Pass ?token=<access_token> so the stream session is linked to the real user.
     """
+    # Resolve user_id from token (best-effort — stream still works without it)
+    user_id: Optional[str] = None
+    if token:
+        try:
+            payload = decode_token(token)
+            user_id = payload.get("user_id") or payload.get("sub")
+        except Exception:
+            pass
+
     if log_filename.startswith("__upload__"):
         key = log_filename[len("__upload__"):]
         stored = UPLOAD_STREAM_STORE.get(key)
@@ -241,18 +256,20 @@ async def websocket_simulate(websocket: WebSocket, log_filename: str, speed: flo
             }))
             await websocket.close()
             return
+        # Prefer user_id from token; fall back to who uploaded the file
+        resolved_user = user_id or stored.get("user_id")
         await simulate_log_stream(
             websocket,
             log_path=None,
             content=stored["content"],
             filename=stored["filename"],
             delay=speed,
+            user_id=resolved_user,
         )
-        # Clean up after stream completes
         UPLOAD_STREAM_STORE.pop(key, None)
     else:
         log_path = SAMPLE_LOGS_DIR / log_filename
-        await simulate_log_stream(websocket, str(log_path), delay=speed)
+        await simulate_log_stream(websocket, str(log_path), delay=speed, user_id=user_id)
 
 
 @router.post("/narrate/{threat_id}")

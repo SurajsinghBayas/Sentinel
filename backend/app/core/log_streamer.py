@@ -86,12 +86,14 @@ async def simulate_log_stream(
     content: str | None = None,
     filename: str | None = None,
     delay: float = 0.1,
+    user_id: str | None = None,       # real user ID from JWT — required for DB persist
 ):
     """
     Stream a log file line-by-line over WebSocket.
     Accepts either:
       - log_path: path to a file on disk (sample files)
       - content + filename: in-memory text (user-uploaded files)
+    Pass user_id so sessions are saved with a valid FK to users.id.
     """
     await websocket.accept()
     session_id = str(uuid.uuid4())
@@ -152,30 +154,53 @@ async def simulate_log_stream(
         except Exception:
             pass
 
-    # Persist to DB + in-memory store (best-effort)
-    try:
-        from app.db.database import AsyncSessionLocal
-        from app.db import crud
+    # Persist to DB + in-memory store
+    if user_id:
+        try:
+            from app.db.database import AsyncSessionLocal
+            from app.db import crud
+            from app.api.logs import DETECTIONS_STORE, SESSION_STORE
+            async with AsyncSessionLocal() as db:
+                # Save the log session (user_id must be a real user FK)
+                await crud.create_session(
+                    db,
+                    session_id=session_id,
+                    user_id=user_id,
+                    filename=filename or "stream",
+                    log_format=str(batch.log_format),
+                    total_lines=len(lines),
+                    parsed_count=batch.parsed_count,
+                    error_count=batch.error_count,
+                    threats_found=results.threats_found,
+                )
+                # Save each threat individually
+                for threat in results.threats:
+                    try:
+                        await crud.save_threat(db, threat)
+                    except Exception as te:
+                        print(f"[streamer] Could not save threat {threat.id}: {te}")
+                    if not any(t.id == threat.id for t in DETECTIONS_STORE):
+                        DETECTIONS_STORE.append(threat)
+            # Update SESSION_STORE mirror
+            SESSION_STORE[session_id] = {
+                "session_id":   session_id,
+                "filename":     filename or "stream",
+                "uploaded_at":  datetime.now(timezone.utc).isoformat(),
+                "total_lines":  len(lines),
+                "parsed_count": batch.parsed_count,
+                "threats_found": results.threats_found,
+                "log_format":   str(batch.log_format),
+            }
+            print(f"[streamer] ✅ Persisted session {session_id} with {results.threats_found} threats")
+        except Exception as db_err:
+            print(f"[streamer] ❌ DB persist error: {db_err}")
+    else:
+        # No user_id — store in memory only (threats visible in current session)
+        print(f"[streamer] ⚠️  No user_id — stream session {session_id} saved to memory only")
         from app.api.logs import DETECTIONS_STORE, SESSION_STORE
-        async with AsyncSessionLocal() as db:
-            # Save the log session so it appears in /logs/sessions
-            await crud.create_session(
-                db,
-                session_id=session_id,
-                user_id="stream",          # anonymous stream session
-                filename=filename or "stream",
-                log_format=str(batch.log_format),
-                total_lines=len(lines),
-                parsed_count=batch.parsed_count,
-                error_count=batch.error_count,
-                threats_found=results.threats_found,
-            )
-            # Save each threat + push to in-memory store
-            for threat in results.threats:
-                await crud.save_threat(db, threat)
-                if not any(t.id == threat.id for t in DETECTIONS_STORE):
-                    DETECTIONS_STORE.append(threat)
-        # Update SESSION_STORE mirror
+        for threat in results.threats:
+            if not any(t.id == threat.id for t in DETECTIONS_STORE):
+                DETECTIONS_STORE.append(threat)
         SESSION_STORE[session_id] = {
             "session_id":   session_id,
             "filename":     filename or "stream",
@@ -185,8 +210,7 @@ async def simulate_log_stream(
             "threats_found": results.threats_found,
             "log_format":   str(batch.log_format),
         }
-    except Exception as db_err:
-        print(f"[streamer] DB persist error: {db_err}")
+
 
     # Send completion marker
     await websocket.send_text(json.dumps({

@@ -12,6 +12,7 @@
 import React, {
   createContext, useContext, useRef, useState, useCallback, useEffect
 } from 'react'
+import { auth } from '@/lib/auth'
 
 export interface WSMessage {
   type: string
@@ -105,7 +106,9 @@ export function StreamProvider({ children }: { children: React.ReactNode }) {
 
   const buildUrl = (file: string) => {
     const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
-    return `${proto}://${window.location.host}/api/logs/simulate/${file}`
+    const token = auth.getToken()
+    const base  = `${proto}://${window.location.host}/api/logs/simulate/${file}`
+    return token ? `${base}?token=${encodeURIComponent(token)}` : base
   }
 
   const onStreamComplete = useCallback((payload: Record<string, unknown>) => {
