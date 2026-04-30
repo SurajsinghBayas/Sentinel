@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Clock, Shield, AlertTriangle, RefreshCw, Radio } from 'lucide-react'
+import { Clock, Shield, AlertTriangle, RefreshCw, Radio, AlertCircle } from 'lucide-react'
 import api from '@/lib/api'
 import { ATTACK_TYPE_LABELS, SEVERITY_COLORS } from '@/lib/utils'
 import { useStreamRefresh, useThreatDetected, useStream } from '@/contexts/StreamContext'
@@ -16,14 +16,20 @@ export default function Timeline() {
   const [threats, setThreats]       = useState<any[]>([])
   const [loading, setLoading]       = useState(true)
   const [refreshing, setRefreshing] = useState(false)
+  const [error, setError]           = useState<string | null>(null)
   const { connected: streaming }    = useStream()
 
   const fetchThreats = useCallback(async (quiet = false) => {
     if (!quiet) setLoading(true)
     else setRefreshing(true)
+    setError(null)
     try {
-      const r = await api.get('/detections', { params: { limit: 100 } })
+      const r = await api.get('/detections', { params: { limit: 200 } })
       setThreats(r.data.threats || [])
+    } catch (err: any) {
+      const msg = err?.response?.data?.detail || err.message || 'Failed to load timeline'
+      setError(msg)
+      console.error('[Timeline] fetchThreats error:', err)
     } finally {
       setLoading(false)
       setRefreshing(false)
@@ -33,7 +39,7 @@ export default function Timeline() {
   // Initial load
   useEffect(() => { fetchThreats() }, [fetchThreats])
 
-  // Full refresh when stream finishes (fires even if page mounted after stream)
+  // Full refresh when stream finishes
   useStreamRefresh(() => { fetchThreats(true) })
 
   // Live-append threats one by one as they arrive during streaming
@@ -44,9 +50,9 @@ export default function Timeline() {
     })
   })
 
-  // Sort chronologically for the timeline
+  // Sort reverse-chronologically — newest attack at the top
   const sorted = [...threats].sort(
-    (a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+    (a, b) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
   )
 
   return (
@@ -76,11 +82,23 @@ export default function Timeline() {
         </div>
       </div>
 
+      {/* Error state */}
+      {error && (
+        <div className="glass-card p-4 border border-sentinel-red/30 flex items-center gap-3">
+          <AlertCircle className="h-5 w-5 text-sentinel-red flex-shrink-0" />
+          <div className="flex-1">
+            <p className="text-sm text-sentinel-red font-semibold">Failed to load timeline</p>
+            <p className="text-xs text-slate-400 mt-0.5">{error}</p>
+          </div>
+          <button onClick={() => fetchThreats()} className="text-xs text-sentinel-cyan hover:underline">Retry</button>
+        </div>
+      )}
+
       {loading ? (
         <div className="flex justify-center py-20">
           <RefreshCw className="h-6 w-6 text-sentinel-cyan animate-spin" />
         </div>
-      ) : sorted.length === 0 ? (
+      ) : sorted.length === 0 && !error ? (
         <div className="glass-card p-12 text-center">
           <Clock className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
           <p className="text-muted-foreground">No events yet. Start a live stream to populate the timeline.</p>

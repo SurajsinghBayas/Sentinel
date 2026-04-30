@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { toast } from 'sonner'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Shield, ChevronDown, ChevronUp, Loader2, Zap, RefreshCw, Bell } from 'lucide-react'
+import { Shield, ChevronDown, ChevronUp, Loader2, Zap, RefreshCw, Bell, AlertCircle } from 'lucide-react'
 import api from '@/lib/api'
 import { ATTACK_TYPE_LABELS, SEVERITY_COLORS, formatRelativeTime } from '@/lib/utils'
 import { useStreamRefresh, useThreatDetected, useStream } from '@/contexts/StreamContext'
@@ -12,22 +12,29 @@ export default function Detections() {
   const [threats, setThreats]       = useState<any[]>([])
   const [loading, setLoading]       = useState(true)
   const [refreshing, setRefreshing] = useState(false)
+  const [error, setError]           = useState<string | null>(null)
   const [filter, setFilter]         = useState('ALL')
   const [expanded, setExpanded]     = useState<string | null>(null)
   const [narrating, setNarrating]   = useState<string | null>(null)
   const [narrations, setNarrations] = useState<Record<string, any>>({})
-  const [newCount, setNewCount]     = useState(0)   // live badge
+  const [newCount, setNewCount]     = useState(0)
   const { connected: streaming }    = useStream()
 
   const fetchThreats = useCallback(async (quiet = false) => {
     if (!quiet) setLoading(true)
     else setRefreshing(true)
+    setError(null)
     try {
-      const params: any = {}
+      const params: any = { limit: 200 }
       if (filter !== 'ALL') params.severity = filter
       const r = await api.get('/detections', { params })
-      setThreats(r.data.threats || [])
+      const list = r.data.threats || []
+      setThreats(list)
       setNewCount(0)
+    } catch (err: any) {
+      const msg = err?.response?.data?.detail || err.message || 'Failed to load threats'
+      setError(msg)
+      console.error('[Detections] fetchThreats error:', err)
     } finally {
       setLoading(false)
       setRefreshing(false)
@@ -37,10 +44,10 @@ export default function Detections() {
   // Initial load + re-fetch when filter changes
   useEffect(() => { fetchThreats() }, [fetchThreats])
 
-  // Re-fetch fully when stream finishes (fires even if page mounted after stream)
+  // Re-fetch when stream finishes
   useStreamRefresh(() => {
     fetchThreats(true)
-    toast.success('Stream complete — detections updated')
+    toast.success('Stream complete — threat detections updated')
   })
 
   // Live-append each detected threat as it arrives during streaming
@@ -79,7 +86,6 @@ export default function Detections() {
           </p>
         </div>
         <div className="flex items-center gap-2">
-          {/* New threats badge */}
           {newCount > 0 && (
             <button onClick={() => fetchThreats(true)}
               className="flex items-center gap-1.5 px-2 py-1 rounded-full text-xs font-semibold bg-sentinel-red/10 border border-sentinel-red/30 text-sentinel-red animate-pulse">
@@ -93,7 +99,6 @@ export default function Detections() {
                 <RefreshCw className="h-4 w-4" />
               </button>
           }
-          {/* Severity filters */}
           <div className="flex gap-1.5">
             {SEVERITIES.map(s => (
               <button key={s} onClick={() => setFilter(s)}
@@ -107,9 +112,21 @@ export default function Detections() {
         </div>
       </div>
 
+      {/* Error state */}
+      {error && (
+        <div className="glass-card p-4 border border-sentinel-red/30 flex items-center gap-3">
+          <AlertCircle className="h-5 w-5 text-sentinel-red flex-shrink-0" />
+          <div className="flex-1">
+            <p className="text-sm text-sentinel-red font-semibold">Failed to load detections</p>
+            <p className="text-xs text-slate-400 mt-0.5">{error}</p>
+          </div>
+          <button onClick={() => fetchThreats()} className="text-xs text-sentinel-cyan hover:underline">Retry</button>
+        </div>
+      )}
+
       {loading ? (
         <div className="flex items-center justify-center h-40"><Loader2 className="h-6 w-6 animate-spin text-sentinel-cyan" /></div>
-      ) : threats.length === 0 ? (
+      ) : threats.length === 0 && !error ? (
         <div className="glass-card p-12 text-center">
           <Shield className="h-10 w-10 text-muted-foreground mx-auto mb-3" />
           <p className="text-muted-foreground">No threats detected yet. Start a live stream to begin analysis.</p>
@@ -143,7 +160,7 @@ export default function Detections() {
                     {/* Evidence */}
                     <div>
                       <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Evidence</p>
-                      {t.evidence.map((e: string, i: number) => (
+                      {(t.evidence || []).map((e: string, i: number) => (
                         <p key={i} className="text-xs text-foreground font-mono bg-sentinel-surface px-2 py-1 rounded">{e}</p>
                       ))}
                     </div>
