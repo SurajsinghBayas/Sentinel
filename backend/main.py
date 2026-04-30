@@ -53,10 +53,13 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
-# ── CORS ──────────────────────────────────────────────────────────────────────
 # Default allows local dev + Vercel production
-cors_origins_str = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000,https://anbusentinel.vercel.app")
+cors_origins_str = os.getenv("CORS_ORIGINS", "http://localhost:5173,http://localhost:3000")
 allow_origins = [o.strip() for o in cors_origins_str.split(",") if o.strip()]
+
+# Forcefully ensure Vercel is always allowed, even if user overrode CORS_ORIGINS in Railway UI
+if "https://anbusentinel.vercel.app" not in allow_origins:
+    allow_origins.append("https://anbusentinel.vercel.app")
 
 app.add_middleware(
     CORSMiddleware,
