@@ -8,7 +8,7 @@ import {
 import { Link } from 'react-router-dom'
 import { useStream } from '@/contexts/StreamContext'
 import { SEVERITY_COLORS, ATTACK_TYPE_LABELS } from '@/lib/utils'
-import { api } from '@/lib/api'
+import api from '@/lib/api'
 
 // ── Sample log files available on the server ──────────────────────────────
 const SAMPLE_FILES = [
@@ -80,8 +80,10 @@ export default function LogStream() {
     setUploadErr(null)
     try {
       const key = await uploadFileToServer(uploadedFile)
-      setSelectedFile(`__upload__${key}`)   // StreamContext uses this key
-      connect()
+      const fileKey = `__upload__${key}`
+      setSelectedFile(fileKey)          // update context label
+      clearMessages()
+      connect(fileKey)                  // pass key directly — no state race
     } catch (err: any) {
       setUploadErr(err.message || 'Upload failed')
     } finally {

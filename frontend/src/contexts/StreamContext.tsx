@@ -28,7 +28,7 @@ interface StreamState {
   lastStreamAt: number           // increments on every stream_complete
   lastStreamPayload: Record<string, unknown> | null
   setSelectedFile: (f: string) => void
-  connect: () => void
+  connect: (fileOverride?: string) => void
   disconnect: () => void
   clearMessages: () => void
 }
@@ -55,15 +55,16 @@ function fireEvent(name: string, payload: Record<string, unknown>) {
  */
 export function useStreamRefresh(cb: () => void) {
   const { lastStreamAt } = useStream()
-  const firstRun = useRef(true)
+  // Capture the value at mount time — any INCREASE after mount triggers the callback
+  const mountedAt = useRef(lastStreamAt)
+  const cbRef = useRef(cb)
+  cbRef.current = cb
+
   useEffect(() => {
-    // Skip the very first mount (lastStreamAt = 0 means no stream yet)
-    if (firstRun.current) {
-      firstRun.current = false
-      if (lastStreamAt === 0) return
+    // Only fire if lastStreamAt has actually increased since this component mounted
+    if (lastStreamAt > mountedAt.current) {
+      cbRef.current()
     }
-    cb()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastStreamAt])
 }
 
@@ -114,12 +115,12 @@ export function StreamProvider({ children }: { children: React.ReactNode }) {
     fireEvent(STREAM_COMPLETE_EVENT, payload)
   }, [])
 
-  const connect = useCallback(() => {
+  const connect = useCallback((fileOverride?: string) => {
     if (ws.current?.readyState === WebSocket.OPEN) return
     setStatus('connecting')
     setStreamDone(false)
     gotCompleteMsg.current = false
-    const url = buildUrl(selectedFile)
+    const url = buildUrl(fileOverride ?? selectedFile)
     ws.current = new WebSocket(url)
 
     ws.current.onopen = () => {
