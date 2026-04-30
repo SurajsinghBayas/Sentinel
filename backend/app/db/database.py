@@ -9,8 +9,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Neon uses ?sslmode=require — asyncpg needs the equivalent driver URL
-_raw_url = os.getenv("DATABASE_URL", "")
+_raw_url = os.getenv("DATABASE_URL")
+
+if not _raw_url:
+    print("❌ FATAL: DATABASE_URL environment variable is missing!")
+    print("❌ Please add it in the Railway Variables tab.")
+    # Dummy URL to prevent import crash; will fail gracefully during init_db
+    _raw_url = "postgresql+asyncpg://postgres:postgres@localhost:5432/postgres"
 
 # Convert to asyncpg driver format and strip ALL query params
 # (asyncpg SSL is configured via connect_args, not URL params)
