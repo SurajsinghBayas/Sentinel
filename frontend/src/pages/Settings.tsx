@@ -59,7 +59,7 @@ export default function Settings() {
       color: '#a855f7',
       rows: [
         { key: 'autoNarrate', label: 'Auto-Narrate Threats', desc: 'Automatically generate AI narration for detected threats' },
-        { key: 'bedrockStreaming', label: 'Bedrock Streaming', desc: 'Use streaming API for faster AI responses' },
+        { key: 'bedrockStreaming', label: 'AI Streaming Mode', desc: 'Use streaming API for faster AI responses' },
       ],
     },
     {
@@ -107,7 +107,7 @@ export default function Settings() {
         </div>
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="text-xs text-slate-400 mb-1.5 block">Bedrock Model</label>
+            <label className="text-xs text-slate-400 mb-1.5 block">AI Model</label>
             <select value={settings.aiModel} onChange={e => set('aiModel')(e.target.value)}
               className="w-full bg-sentinel-surface border border-sentinel-border rounded-lg px-3 py-2 text-sm text-white
                 focus:outline-none focus:border-sentinel-cyan">

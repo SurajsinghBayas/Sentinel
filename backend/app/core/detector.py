@@ -29,11 +29,21 @@ TRAVERSAL_PATTERNS = re.compile(
     re.IGNORECASE,
 )
 
+# ── Syslog / Auth pattern regexes ───────────────────────────────────────────
+SSH_FAIL_PATTERN      = re.compile(r'Failed password for (invalid user )?\S+ from (\d+\.\d+\.\d+\.\d+)', re.IGNORECASE)
+SSH_ACCEPT_PATTERN    = re.compile(r'Accepted (password|publickey) for \S+ from (\d+\.\d+\.\d+\.\d+)', re.IGNORECASE)
+PRIV_ESC_PATTERN      = re.compile(r'(sudo.*command not allowed|authentication failure.*sudo|pam_tally2.*deny|pam_unix.*sudo.*failure)', re.IGNORECASE)
+INVALID_USER_PATTERN  = re.compile(r'Invalid user \S+ from (\d+\.\d+\.\d+\.\d+)', re.IGNORECASE)
+ACCOUNT_LOCK_PATTERN  = re.compile(r'pam_tally.*tally\s+\d+.*deny|account.*locked|maximum authentication attempts exceeded', re.IGNORECASE)
+UFW_BLOCK_PATTERN     = re.compile(r'\[UFW BLOCK\].*SRC=(\d+\.\d+\.\d+\.\d+).*DPT=(\d+)', re.IGNORECASE)
+
 # ── Thresholds ────────────────────────────────────────────────────────────────
-BRUTE_FORCE_THRESHOLD = 8       # failed auth in 60s window
-DDOS_THRESHOLD = 200            # requests in 10s window
-PORT_SCAN_THRESHOLD = 15        # unique ports in 30s window
-EXFIL_BYTES_THRESHOLD = 5_000_000  # 5MB response = suspicious
+BRUTE_FORCE_THRESHOLD  = 8        # failed auth in 60s window
+DDOS_THRESHOLD         = 150      # requests in 10s window
+PORT_SCAN_THRESHOLD    = 15       # unique ports in 30s window
+EXFIL_BYTES_THRESHOLD  = 5_000_000  # 5MB response = suspicious
+SSH_BRUTE_THRESHOLD    = 6        # SSH failed passwords per IP
+INVALID_USER_THRESHOLD = 5        # invalid user attempts per IP
 
 
 class DetectionEngine:
@@ -51,39 +61,60 @@ class DetectionEngine:
         for ip, ip_entries in by_ip.items():
             ip_entries_sorted = sorted(ip_entries, key=lambda x: x.timestamp)
 
-            # 1. Brute Force / Auth Failure detection
+            # 1. Brute Force / Auth Failure (HTTP 401/403)
             threat = self._detect_brute_force(ip, ip_entries_sorted, session_id)
             if threat:
                 threats.append(threat)
 
-            # 2. DDoS detection
+            # 2. SSH Brute Force (syslog Failed password messages)
+            threat = self._detect_ssh_brute_force(ip, ip_entries_sorted, session_id)
+            if threat:
+                threats.append(threat)
+
+            # 3. DDoS detection
             threat = self._detect_ddos(ip, ip_entries_sorted, session_id)
             if threat:
                 threats.append(threat)
 
-            # 3. Port scan (Zeek/Syslog)
+            # 4. Port scan (Zeek/Syslog UFW BLOCK patterns)
             threat = self._detect_port_scan(ip, ip_entries_sorted, session_id)
             if threat:
                 threats.append(threat)
 
-        # 4. Per-entry pattern matching (SQLi, XSS, traversal)
+        # 5. Per-entry pattern matching (SQLi, XSS, traversal, syslog events)
         for entry in entries:
-            path = (entry.path or "") + (entry.user_agent or "")
+            path    = (entry.path or "")
+            ua      = (entry.user_agent or "")
+            raw     = (entry.raw_line or "")
+            searchable = path + " " + ua
 
-            if SQLI_PATTERNS.search(path):
-                threats.append(self._make_pattern_threat(entry, AttackType.SQL_INJECTION, SeverityLevel.HIGH, "SQL Injection", "SQLi pattern in request", session_id))
+            if SQLI_PATTERNS.search(searchable):
+                threats.append(self._make_pattern_threat(entry, AttackType.SQL_INJECTION, SeverityLevel.CRITICAL, "SQL_INJECTION", "SQLi pattern in request path/body", session_id))
 
-            elif XSS_PATTERNS.search(path):
-                threats.append(self._make_pattern_threat(entry, AttackType.XSS, SeverityLevel.HIGH, "XSS Attempt", "XSS pattern in request", session_id))
+            elif XSS_PATTERNS.search(searchable):
+                threats.append(self._make_pattern_threat(entry, AttackType.XSS, SeverityLevel.HIGH, "XSS_ATTEMPT", "XSS pattern detected in request", session_id))
 
-            elif TRAVERSAL_PATTERNS.search(path):
-                threats.append(self._make_pattern_threat(entry, AttackType.DIRECTORY_TRAVERSAL, SeverityLevel.MEDIUM, "Directory Traversal", "Path traversal pattern detected", session_id))
+            elif TRAVERSAL_PATTERNS.search(searchable) or TRAVERSAL_PATTERNS.search(raw):
+                threats.append(self._make_pattern_threat(entry, AttackType.DIRECTORY_TRAVERSAL, SeverityLevel.MEDIUM, "DIRECTORY_TRAVERSAL", "Path traversal pattern detected", session_id))
 
-            # Data exfiltration check
+            # Privilege escalation (syslog)
+            if PRIV_ESC_PATTERN.search(raw):
+                threats.append(self._make_pattern_threat(entry, AttackType.PRIVILEGE_ESCALATION, SeverityLevel.CRITICAL, "PRIV_ESC_DETECTED", "Privilege escalation attempt via sudo/PAM", session_id))
+
+            # Account lockout (syslog)
+            elif ACCOUNT_LOCK_PATTERN.search(raw):
+                threats.append(self._make_pattern_threat(entry, AttackType.BRUTE_FORCE, SeverityLevel.HIGH, "ACCOUNT_LOCKOUT", "Account lockout triggered by repeated failures", session_id))
+
+            # UFW blocked port sweep — individual ports (low severity)
+            ufw_m = UFW_BLOCK_PATTERN.search(raw)
+            if ufw_m:
+                threats.append(self._make_pattern_threat(entry, AttackType.PORT_SCAN, SeverityLevel.LOW, "UFW_BLOCK", f"UFW blocked connection to port {ufw_m.group(2)}", session_id))
+
+            # Data exfiltration (large outbound bytes)
             if entry.bytes_sent and entry.bytes_sent > EXFIL_BYTES_THRESHOLD:
-                threats.append(self._make_pattern_threat(entry, AttackType.DATA_EXFILTRATION, SeverityLevel.MEDIUM, "Data Exfiltration", f"Large response: {entry.bytes_sent:,} bytes", session_id))
+                threats.append(self._make_pattern_threat(entry, AttackType.DATA_EXFILTRATION, SeverityLevel.CRITICAL, "DATA_EXFIL", f"Suspiciously large response: {entry.bytes_sent:,} bytes", session_id))
 
-        # Deduplicate (same IP + same type = keep highest severity)
+        # Deduplicate (same IP + same type → keep highest severity)
         threats = self._deduplicate(threats)
 
         return DetectionResult(
@@ -94,35 +125,52 @@ class DetectionEngine:
         )
 
     def _detect_brute_force(self, ip: str, entries: List[LogEntry], session_id: str) -> ThreatEvent | None:
-        """Detect brute force: ≥N failed auth (4xx) requests in a 60s window."""
+        """Detect HTTP brute force: ≥N failed auth (401/403) requests in 60s window."""
         WINDOW = 60
         failures = [e for e in entries if e.status_code and e.status_code in (401, 403)]
         if len(failures) < BRUTE_FORCE_THRESHOLD:
             return None
-
-        # Sliding window check
         for i, entry in enumerate(failures):
-            window_entries = [
-                e for e in failures[i:]
-                if (e.timestamp - entry.timestamp).total_seconds() <= WINDOW
-            ]
+            window_entries = [e for e in failures[i:] if (e.timestamp - entry.timestamp).total_seconds() <= WINDOW]
             if len(window_entries) >= BRUTE_FORCE_THRESHOLD:
                 severity = SeverityLevel.CRITICAL if len(window_entries) >= 20 else SeverityLevel.HIGH
                 return ThreatEvent(
-                    id=str(uuid.uuid4()),
-                    session_id=session_id,
-                    timestamp=entry.timestamp,
-                    attack_type=AttackType.BRUTE_FORCE,
-                    severity=severity,
-                    source_ip=ip,
-                    target_path=entry.path,
+                    id=str(uuid.uuid4()), session_id=session_id,
+                    timestamp=entry.timestamp, attack_type=AttackType.BRUTE_FORCE,
+                    severity=severity, source_ip=ip, target_path=entry.path,
                     request_count=len(window_entries),
-                    confidence=min(0.95, 0.7 + len(window_entries) * 0.01),
-                    rule_name="BRUTE_FORCE_AUTH",
-                    evidence=[f"{len(window_entries)} failed auth attempts in {WINDOW}s"],
+                    confidence=min(0.97, 0.7 + len(window_entries) * 0.01),
+                    rule_name="HTTP_BRUTE_FORCE",
+                    evidence=[f"{len(window_entries)} HTTP 401/403 responses from {ip} within {WINDOW}s"],
                     raw_entries=[e.raw_line for e in window_entries[:5]],
                 )
         return None
+
+    def _detect_ssh_brute_force(self, ip: str, entries: List[LogEntry], session_id: str) -> ThreatEvent | None:
+        """Detect SSH brute force from syslog 'Failed password' messages."""
+        ssh_fails = [e for e in entries if SSH_FAIL_PATTERN.search(e.raw_line or "")]
+        if len(ssh_fails) < SSH_BRUTE_THRESHOLD:
+            return None
+        severity = SeverityLevel.CRITICAL if len(ssh_fails) >= 20 else SeverityLevel.HIGH
+        first = ssh_fails[0]
+        # Check for successful login — escalate severity
+        success_logins = [e for e in entries if SSH_ACCEPT_PATTERN.search(e.raw_line or "")]
+        if success_logins:
+            severity = SeverityLevel.CRITICAL
+        return ThreatEvent(
+            id=str(uuid.uuid4()), session_id=session_id,
+            timestamp=first.timestamp, attack_type=AttackType.BRUTE_FORCE,
+            severity=severity, source_ip=ip,
+            target_path="/ssh",
+            request_count=len(ssh_fails),
+            confidence=min(0.98, 0.75 + len(ssh_fails) * 0.01),
+            rule_name="SSH_BRUTE_FORCE",
+            evidence=[
+                f"{len(ssh_fails)} SSH 'Failed password' attempts from {ip}",
+                f"{len(success_logins)} successful logins detected" if success_logins else "No successful logins",
+            ],
+            raw_entries=[e.raw_line for e in ssh_fails[:5]],
+        )
 
     def _detect_ddos(self, ip: str, entries: List[LogEntry], session_id: str) -> ThreatEvent | None:
         """Detect DDoS: ≥N requests from same IP in 10s window."""

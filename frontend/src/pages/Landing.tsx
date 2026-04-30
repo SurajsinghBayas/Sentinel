@@ -19,13 +19,6 @@ function CyberBackground() {
           `,
           backgroundSize: '60px 60px',
         }} />
-      {/* Glowing orbs */}
-      <div className="absolute top-1/4 left-1/4 h-96 w-96 rounded-full opacity-10 blur-3xl"
-        style={{ background: 'radial-gradient(circle, #00d4ff, transparent)' }} />
-      <div className="absolute bottom-1/4 right-1/4 h-64 w-64 rounded-full opacity-8 blur-3xl"
-        style={{ background: 'radial-gradient(circle, #a855f7, transparent)' }} />
-      <div className="absolute top-3/4 left-1/2 h-48 w-48 rounded-full opacity-6 blur-3xl"
-        style={{ background: 'radial-gradient(circle, #f43f5e, transparent)' }} />
     </div>
   )
 }
@@ -74,7 +67,7 @@ const FEATURES = [
     icon: Brain,
     color: '#a855f7',
     title: 'AI-Powered Narration',
-    desc: 'Claude 3.5 via AWS Bedrock translates raw threat data into actionable, plain-English security briefings — instantly.',
+    desc: 'Advanced AI translates raw threat data into actionable, plain-English security briefings — instantly.',
   },
   {
     icon: Radio,
@@ -171,7 +164,7 @@ export default function Landing() {
           <span className="text-white">Detect Threats</span>
           <br />
           <span style={{
-            background: 'linear-gradient(135deg, #00d4ff, #a855f7)',
+            background: 'linear-gradient(135deg, #f97316, #f43f5e, #e11d48)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
           }}>Before They Strike</span>
@@ -181,7 +174,7 @@ export default function Landing() {
           transition={{ delay: 0.2 }}
           className="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
           ANBU Sentinel is an AI-powered network anomaly detection system that streams your logs in real-time,
-          detects threats instantly, and narrates incidents in plain English using AWS Bedrock's Claude.
+          detects threats instantly, and generates actionable incident narrations in plain English.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}

@@ -1,0 +1,68 @@
+# Dependencies
+node_modules/
+backend/venv/
+backend/env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Next.js / Vite build output
+frontend/dist/
+frontend/build/
+.next/
+
+# Environment Variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# SQLite / Database
+*.sqlite3
+*.db
+backend/sentinel.db
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Coverage and Testing
+coverage/
+.nyc_output/
+.tox/
+.pytest_cache/
+.mypy_cache/
+
+# Misc
+.vercel/

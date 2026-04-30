@@ -15,15 +15,17 @@ class SeverityLevel(str, Enum):
 
 
 class AttackType(str, Enum):
-    BRUTE_FORCE = "BRUTE_FORCE"
-    DDOS = "DDOS"
-    SQL_INJECTION = "SQL_INJECTION"
-    XSS = "XSS"
-    PORT_SCAN = "PORT_SCAN"
-    DATA_EXFILTRATION = "DATA_EXFILTRATION"
-    DIRECTORY_TRAVERSAL = "DIRECTORY_TRAVERSAL"
-    ML_ANOMALY = "ML_ANOMALY"
-    UNKNOWN = "UNKNOWN"
+    BRUTE_FORCE          = "BRUTE_FORCE"
+    DDOS                 = "DDOS"
+    SQL_INJECTION        = "SQL_INJECTION"
+    XSS                  = "XSS"
+    PORT_SCAN            = "PORT_SCAN"
+    DATA_EXFILTRATION    = "DATA_EXFILTRATION"
+    DIRECTORY_TRAVERSAL  = "DIRECTORY_TRAVERSAL"
+    PRIVILEGE_ESCALATION = "PRIVILEGE_ESCALATION"
+    COMMAND_INJECTION    = "COMMAND_INJECTION"
+    ML_ANOMALY           = "ML_ANOMALY"
+    UNKNOWN              = "UNKNOWN"
 
 
 class LogFormat(str, Enum):

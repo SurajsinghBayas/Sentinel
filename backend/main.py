@@ -18,6 +18,7 @@ load_dotenv()
 from app.api.auth import router as auth_router
 from app.api.logs import router as logs_router
 from app.api.routes import detections_router, dashboard_router, reports_router
+from app.db.database import init_db
 
 # Ensure data directory exists
 DATA_DIR = Path(__file__).parent / "app" / "data"
@@ -33,6 +34,11 @@ async def lifespan(app: FastAPI):
     print(f"   AWS Region: {os.getenv('AWS_REGION', 'us-east-1')}")
     print(f"   Bedrock Model: {os.getenv('BEDROCK_MODEL_ID', 'claude-3-5-sonnet')}")
     print(f"   Environment: {os.getenv('APP_ENV', 'development')}")
+    try:
+        await init_db()
+        print("   ✅ Database tables ready (Neon PostgreSQL)")
+    except Exception as e:
+        print(f"   ⚠️  DB init warning: {e}")
     yield
     print("🛡️  ANBU Sentinel shutting down...")
 

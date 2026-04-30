@@ -2,16 +2,16 @@ import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  LayoutDashboard, Shield, Activity, Upload,
+  LayoutDashboard, Shield, Activity,
   FileText, Clock, Radio, ChevronRight,
-  ChevronLeft, Settings, User, Home
+  ChevronLeft, Settings, User, Wifi
 } from 'lucide-react'
+import { useStream } from '@/contexts/StreamContext'
 
 const NAV_ITEMS = [
   { to: '/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/detections', icon: Shield, label: 'Detections' },
   { to: '/stream', icon: Radio, label: 'Live Stream' },
-  { to: '/upload', icon: Upload, label: 'Log Upload' },
   { to: '/timeline', icon: Clock, label: 'Timeline' },
   { to: '/reports', icon: FileText, label: 'Reports' },
 ]
@@ -23,6 +23,7 @@ const BOTTOM_ITEMS = [
 
 export function Sidebar() {
   const [collapsed, setCollapsed] = useState(false)
+  const { connected: streaming } = useStream()
 
   return (
     <motion.aside
@@ -78,7 +79,13 @@ export function Sidebar() {
           >
             {({ isActive }) => (
               <>
-                <Icon className={`h-4 w-4 flex-shrink-0 ${isActive ? 'text-sentinel-cyan' : ''}`} />
+                <span className="relative">
+                  <Icon className={`h-4 w-4 flex-shrink-0 ${isActive ? 'text-sentinel-cyan' : ''}`} />
+                  {/* Streaming pulse on Live Stream icon */}
+                  {to === '/stream' && streaming && (
+                    <span className="absolute -top-1 -right-1 h-2 w-2 rounded-full bg-sentinel-green animate-ping" />
+                  )}
+                </span>
                 <AnimatePresence>
                   {!collapsed && (
                     <motion.span
@@ -89,7 +96,12 @@ export function Sidebar() {
                     >{label}</motion.span>
                   )}
                 </AnimatePresence>
-                {!collapsed && isActive && <ChevronRight className="h-3 w-3 text-sentinel-cyan flex-shrink-0" />}
+                {!collapsed && streaming && to === '/stream' && (
+                  <span className="text-xs font-mono text-sentinel-green bg-sentinel-green/10 px-1.5 py-0.5 rounded flex-shrink-0">
+                    live
+                  </span>
+                )}
+                {!collapsed && isActive && !streaming && <ChevronRight className="h-3 w-3 text-sentinel-cyan flex-shrink-0" />}
               </>
             )}
           </NavLink>
@@ -126,7 +138,7 @@ export function Sidebar() {
       {/* Status bar */}
       <div className="px-4 py-3 border-t border-sentinel-border">
         <div className={`flex items-center gap-2 text-xs text-muted-foreground ${collapsed ? 'justify-center' : ''}`}>
-          <span className="h-2 w-2 min-w-[8px] rounded-full bg-sentinel-green animate-pulse" />
+          <span className={`h-2 w-2 min-w-[8px] rounded-full animate-pulse ${streaming ? 'bg-yellow-400' : 'bg-sentinel-green'}`} />
           <AnimatePresence>
             {!collapsed && (
               <motion.span
@@ -134,7 +146,7 @@ export function Sidebar() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 className="font-mono whitespace-nowrap"
-              >System Operational</motion.span>
+              >{streaming ? 'Stream Active' : 'System Operational'}</motion.span>
             )}
           </AnimatePresence>
         </div>

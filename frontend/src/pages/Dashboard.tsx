@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { Shield, AlertTriangle, Activity, Eye, TrendingUp, Zap } from 'lucide-react'
+import { Shield, AlertTriangle, Activity, Eye, TrendingUp, Zap, RefreshCw } from 'lucide-react'
 import { AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
 import api from '@/lib/api'
 import { SEVERITY_COLORS, ATTACK_TYPE_LABELS, formatRelativeTime } from '@/lib/utils'
+import { useStreamRefresh, useStream } from '@/contexts/StreamContext'
 
 const CARD_VARIANTS = {
   hidden: { opacity: 0, y: 20 },
@@ -28,10 +29,34 @@ function StatCard({ icon: Icon, label, value, color, index }: any) {
 export default function Dashboard() {
   const [stats, setStats] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
+  const { connected: streaming } = useStream()
 
-  useEffect(() => {
-    api.get('/dashboard/stats').then(r => setStats(r.data)).finally(() => setLoading(false))
+  const fetchStats = useCallback(async (quiet = false) => {
+    if (!quiet) setLoading(true)
+    else setRefreshing(true)
+    try {
+      const r = await api.get('/dashboard/stats')
+      setStats(r.data)
+    } finally {
+      setLoading(false)
+      setRefreshing(false)
+    }
   }, [])
+
+  // Initial load
+  useEffect(() => { fetchStats() }, [fetchStats])
+
+  // Re-fetch whenever a stream finishes (fires even if page mounted after stream)
+  useStreamRefresh(() => { fetchStats(true) })
+
+  // Poll every 30s while streaming is active
+  useEffect(() => {
+    if (!streaming) return
+    const id = setInterval(() => fetchStats(true), 30_000)
+    return () => clearInterval(id)
+  }, [streaming, fetchStats])
+
 
   const pieData = stats ? Object.entries(stats.attack_type_breakdown || {}).map(([k, v]) => ({
     name: ATTACK_TYPE_LABELS[k] || k, value: v as number
@@ -46,9 +71,19 @@ export default function Dashboard() {
           <h1 className="text-2xl font-bold text-white">Security Dashboard</h1>
           <p className="text-sm text-slate-400 mt-0.5">Real-time threat intelligence overview</p>
         </div>
-        <div className="flex items-center gap-2 text-xs text-slate-300 font-mono">
+        <div className="flex items-center gap-2">
+          {refreshing && <RefreshCw className="h-3.5 w-3.5 text-sentinel-cyan animate-spin" />}
+          {streaming && (
+            <span className="text-xs font-mono bg-sentinel-green/10 border border-sentinel-green/30 text-sentinel-green px-2 py-1 rounded-full">
+              ● Stream Active
+            </span>
+          )}
+          <button onClick={() => fetchStats(true)} title="Refresh stats"
+            className="text-slate-400 hover:text-sentinel-cyan transition-colors">
+            <RefreshCw className="h-4 w-4" />
+          </button>
           <span className="h-2 w-2 rounded-full bg-sentinel-green animate-pulse" />
-          LIVE
+          <span className="text-xs text-slate-300 font-mono">LIVE</span>
         </div>
       </div>
 

@@ -2,13 +2,13 @@ import React from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { Toaster } from 'sonner'
 import { AuthProvider } from '@/hooks/useAuth'
+import { StreamProvider } from '@/contexts/StreamContext'
 import { AppLayout } from '@/components/layout/AppLayout'
 import Landing from '@/pages/Landing'
 import Login from '@/pages/Login'
 import Signup from '@/pages/Signup'
 import Dashboard from '@/pages/Dashboard'
 import LogStream from '@/pages/LogStream'
-import LogUpload from '@/pages/LogUpload'
 import Detections from '@/pages/Detections'
 import Timeline from '@/pages/Timeline'
 import Reports from '@/pages/Reports'
@@ -19,6 +19,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <StreamProvider>
         <Toaster
           theme="dark"
           position="top-right"
@@ -40,7 +41,7 @@ export default function App() {
           {/* Protected routes */}
           <Route path="/dashboard" element={<AppLayout><Dashboard /></AppLayout>} />
           <Route path="/stream" element={<AppLayout><LogStream /></AppLayout>} />
-          <Route path="/upload" element={<AppLayout><LogUpload /></AppLayout>} />
+          <Route path="/upload" element={<Navigate to="/stream" replace />} />
           <Route path="/detections" element={<AppLayout><Detections /></AppLayout>} />
           <Route path="/timeline" element={<AppLayout><Timeline /></AppLayout>} />
           <Route path="/reports" element={<AppLayout><Reports /></AppLayout>} />
@@ -50,6 +51,7 @@ export default function App() {
           {/* Fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+        </StreamProvider>
       </AuthProvider>
     </BrowserRouter>
   )
