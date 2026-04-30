@@ -105,9 +105,18 @@ export function StreamProvider({ children }: { children: React.ReactNode }) {
   const gotCompleteMsg = useRef(false)
 
   const buildUrl = (file: string) => {
-    const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+    let base = ''
+    const apiUrl = import.meta.env.VITE_API_URL
+    if (apiUrl) {
+      // Convert http(s)://backend.com/api to ws(s)://backend.com/api
+      const wsUrl = apiUrl.replace(/^http/, 'ws')
+      base = `${wsUrl}/logs/simulate/${file}`
+    } else {
+      const proto = window.location.protocol === 'https:' ? 'wss' : 'ws'
+      base = `${proto}://${window.location.host}/api/logs/simulate/${file}`
+    }
+    
     const token = auth.getToken()
-    const base  = `${proto}://${window.location.host}/api/logs/simulate/${file}`
     return token ? `${base}?token=${encodeURIComponent(token)}` : base
   }
 
